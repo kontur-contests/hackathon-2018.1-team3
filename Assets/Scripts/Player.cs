@@ -1,9 +1,10 @@
-﻿using Assets.Scripts.Extensions;
-using Assets.Scripts.Models;
+﻿using Extensions;
 using UnityEngine;
 
 public class Player : MovingObject
 {
+    private Rigidbody2D rb2d;
+    
     protected override float ObjectSpeed
     {
         get { return 10.0f; }
@@ -12,6 +13,7 @@ public class Player : MovingObject
     // Use this for initialization
 	void Start ()
 	{
+	    rb2d = GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
@@ -19,23 +21,34 @@ public class Player : MovingObject
     {
         AttemptToMove();
     }
+    
+    void OnCollisionExit2D()
+    {
+        rb2d.AddForce(-rb2d.velocity);
+    }
 
     private void AttemptToMove()
     {
         var currentMovement = GetCurrentMovement();
         if (currentMovement.HasMovementAtAnyAxis())
-            MoveObject(currentMovement);
+            MoveObject(rb2d, currentMovement);
+//        {
+//            var rb2d = GetComponent<Rigidbody2D>();
+//            rb2d.MovePosition(GetCurrentMovement());
+//        }
     }
 
-    private CurrentMovement GetCurrentMovement()
+    private Vector2 GetCurrentMovement()
     {
-        var xMovement = ObjectSpeed * Time.deltaTime * Input.GetAxisRaw("Horizontal");
-        var yMovement = ObjectSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical");
+        var inputMupltiplier = GetMovementMultiplier();
+        var xMovement = inputMupltiplier * Input.GetAxisRaw("Horizontal");
+        var yMovement = inputMupltiplier * Input.GetAxisRaw("Vertical");
 
-        return new CurrentMovement
+        return new Vector3
         {
-            XAxisMovement = xMovement,
-            YAxisMovement = yMovement
+            x = xMovement,
+            y = yMovement,
+            z = 0
         };
     }
 }
