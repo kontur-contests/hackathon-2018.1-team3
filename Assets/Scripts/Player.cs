@@ -25,10 +25,6 @@ public class Player : MovingObject
 	{
 	    rb2d = GetComponent<Rigidbody2D>();
 	    c2d = GetComponent<CircleCollider2D>();
-        allowedMoveUp = true;
-        allowedMoveDown = true;
-        allowedMoveLeft = true;
-        allowedMoveRight = true;
 	    playerAttributes = gameObject.AddComponent<PlayerAttributes>();
 	    playerWeapon = playerAttributes.CurrentPlayerWeapon
 	        ? playerAttributes.CurrentPlayerWeapon
@@ -45,22 +41,6 @@ public class Player : MovingObject
     private void AttemptToMove()
     {
         var currentMovement = GetCurrentMovement();
-        if (currentMovement.y > float.Epsilon && !allowedMoveUp) // Up
-        {
-            currentMovement.y = 0;
-        }
-        else if (currentMovement.y < -float.Epsilon && !allowedMoveDown) // Down
-        {
-            currentMovement.y = 0;
-        }
-        else if (currentMovement.x > float.Epsilon && !allowedMoveRight) // Right
-        {
-            currentMovement.x = 0;
-        }
-        else if (currentMovement.x < -float.Epsilon && !allowedMoveLeft) // Left
-        {
-            currentMovement.x = 0;
-        }
         else if (Math.Abs(currentMovement.x) < Math.Abs(currentMovement.y))
         {
             currentMovement.x = 0;
