@@ -18,32 +18,12 @@ public class Player : MovingObject
 	void Start ()
 	{
 	    rb2d = GetComponent<Rigidbody2D>();
-        allowedMoveUp = true;
-        allowedMoveDown = true;
-        allowedMoveLeft = true;
-        allowedMoveRight = true;
     }
 	
 	// Update is called once per frame
     void Update()
     {
         var currentMovement = GetCurrentMovement();
-        if (currentMovement.y > float.Epsilon && !allowedMoveUp) // Up
-        {
-            currentMovement.y = 0;
-        }
-        else if (currentMovement.y < -float.Epsilon && !allowedMoveDown) // Down
-        {
-            currentMovement.y = 0;
-        }
-        else if (currentMovement.x > float.Epsilon && !allowedMoveRight) // Right
-        {
-            currentMovement.x = 0;
-        }
-        else if (currentMovement.x < -float.Epsilon && !allowedMoveLeft) // Left
-        {
-            currentMovement.x = 0;
-        }
 
         if (currentMovement.HasMovementAtAnyAxis())
             MoveObject(rb2d, currentMovement);

@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Weapons;
 
-public class PlayerAttributes : MonoBehaviour {
-
+public class PlayerAttributes : MonoBehaviour
+{//TODO: Should be singletone;
     public Text healthText;
     public Text strengthText;
     public Text agilityText;
@@ -11,6 +12,7 @@ public class PlayerAttributes : MonoBehaviour {
     public Text moneyText;
     public Text awsText;
 
+    #region serializableAttributes
     public int health = 100;
     public int maxHealth;
     //public string weapon1;
@@ -22,29 +24,43 @@ public class PlayerAttributes : MonoBehaviour {
     public int awesomeness = 1000;
 
     public Weapon CurrentPlayerWeapon;
+    public int XOnMap;
+    public int YOnMap;
+    public LevelMap currentMap;
+    #endregion
 
     // Use this for initialization
     void Awake()
     {
-         maxHealth = 50 + 50 * endurance;
-         health = 100;
-         updateText();
+        DontDestroyOnLoad(gameObject);
+
+        maxHealth = 50 + 50 * endurance;
+        health = maxHealth;//?
+        currentMap = new LevelMap("comp1");
+        XOnMap = 0;//I'm not entirely shre if this is called once per game or once per level. 
+        YOnMap = 0;
+
+        updateText();
     }
-    
-    void Start ()
+
+    void Start()
     {
         CurrentPlayerWeapon = new PlayerWeaponStorage().GetCurrentPlayerWeapon();
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         if (Input.GetMouseButtonDown(0))
-            changeAwesomeness(awesomeness + 1);
-	}
+        {
+            //string nextLevel = currentMap.GetRoomNameByCoords(XOnMap + 1, YOnMap);//4 listheners on transition;
+            //SceneManager.LoadScene(nextLevel);
+        }
+    }
 
     void onDeath()
     {
-        //TODO: 
+        //TODO: finish this
     }
 
     void changeHealth(int newValue)
