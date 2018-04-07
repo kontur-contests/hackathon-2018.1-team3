@@ -66,7 +66,7 @@ public class Player : MovingObject
             collision.rigidbody.velocity = new Vector2(0, 0);
         }
 
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("EnemyBullet"))
         {
             playerAttributes.ChangeHealthValue(-20);
         }

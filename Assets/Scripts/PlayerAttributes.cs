@@ -121,6 +121,7 @@ public class PlayerAttributes : MonoBehaviour
     public void ChangeHealthValue(int change)
     {
         health += change;
-        updateText();
+        Debug.Log(health);
+        //updateText();
     }
 }

@@ -37,10 +37,11 @@ public class Enemy : MovingObject
         {
             followActive = false;
         }
-	    if (collision.gameObject.CompareTag("Bullet"))
+	    if (collision.gameObject.CompareTag("KatanaBullet"))
 	    {
 		    HP -= 20;
-		    Debug.Log(HP);
+		    if (HP <= 0)
+			    Destroy(gameObject);
 	    }
     }
 
