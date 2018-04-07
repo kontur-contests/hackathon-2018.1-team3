@@ -21,21 +21,12 @@ public class Player : MovingObject
     {
         AttemptToMove();
     }
-    
-    void OnCollisionExit2D()
-    {
-        rb2d.AddForce(-rb2d.velocity);
-    }
 
     private void AttemptToMove()
     {
         var currentMovement = GetCurrentMovement();
         if (currentMovement.HasMovementAtAnyAxis())
             MoveObject(rb2d, currentMovement);
-//        {
-//            var rb2d = GetComponent<Rigidbody2D>();
-//            rb2d.MovePosition(GetCurrentMovement());
-//        }
     }
 
     private Vector2 GetCurrentMovement()
