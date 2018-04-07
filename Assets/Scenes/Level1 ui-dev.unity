@@ -2258,11 +2258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ad7aaef40bc94478a7cad0c2799be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 0
-  strength: 1
-  agility: 1
-  endurance: 1
 --- !u!212 &236959441
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3948,7 +3943,7 @@ GameObject:
   - component: {fileID: 1684926411}
   - component: {fileID: 1684926410}
   m_Layer: 5
-  m_Name: MoneyImg (1)
+  m_Name: AwsImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
