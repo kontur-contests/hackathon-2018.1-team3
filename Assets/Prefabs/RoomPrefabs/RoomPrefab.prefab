@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 8195094280472463300}
   - component: {fileID: 3664157345545144530}
   - component: {fileID: 2113883505932831154}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tilemap_door_left
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 8195094282549830078}
   - component: {fileID: 3664157344825565760}
   - component: {fileID: 2113883505041548632}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tilemap_door_down
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 8195094280448971646}
   - component: {fileID: 3664157344151491556}
   - component: {fileID: 2113883506113206160}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tilemap_door_right
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 8195094282290097332}
   - component: {fileID: 3664157343072393494}
   - component: {fileID: 2113883505167138982}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tilemap_door_up
   m_TagString: Door
   m_Icon: {fileID: 0}

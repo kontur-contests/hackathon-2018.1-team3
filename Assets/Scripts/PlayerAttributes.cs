@@ -28,9 +28,12 @@ public class PlayerAttributes : MonoBehaviour
     public int YOnMap;
     public LevelMap currentMap;
     #endregion
+
     // Use this for initialization
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+
         maxHealth = 50 + 50 * endurance;
         health = maxHealth;//?
         currentMap = new LevelMap("comp1");
