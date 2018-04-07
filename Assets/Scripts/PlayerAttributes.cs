@@ -22,6 +22,7 @@ public class PlayerAttributes : MonoBehaviour
     public int endurance = 1;
     public int money = 1000;
     public int awesomeness = 1000;
+    public int flaskCharges = 2;
 
     public Weapon CurrentPlayerWeapon;
     public int XOnMap;
@@ -53,6 +54,7 @@ public class PlayerAttributes : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            changeHealth(health-25);
             //string nextLevel = currentMap.GetRoomNameByCoords(XOnMap + 1, YOnMap);//4 listheners on transition;
             //SceneManager.LoadScene(nextLevel);
         }
@@ -60,7 +62,8 @@ public class PlayerAttributes : MonoBehaviour
 
     void onDeath()
     {
-        //TODO: finish this
+        Debug.Log("You died!!!");
+
     }
 
     void changeHealth(int newValue)

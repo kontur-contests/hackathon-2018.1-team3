@@ -27,6 +27,16 @@ public class Player : MovingObject
 
         if (currentMovement.HasMovementAtAnyAxis())
             MoveObject(rb2d, currentMovement);
+
+        if(Input.GetButton("Drink"))
+        {
+            var attr = GetComponent<PlayerAttributes>();
+            if (attr.flaskCharges>0&&attr.health<attr.maxHealth)
+            {
+                attr.flaskCharges--;
+                attr.health = attr.maxHealth;
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
