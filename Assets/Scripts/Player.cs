@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MovingObject
 {
+
     protected override float ObjectSpeed
     {
         get { return 10.0f; }
