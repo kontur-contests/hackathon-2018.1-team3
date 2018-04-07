@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 2113883505932831154}
   m_Layer: 0
   m_Name: Tilemap_door_left
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 2113883505041548632}
   m_Layer: 0
   m_Name: Tilemap_door_down
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 2113883506113206160}
   m_Layer: 0
   m_Name: Tilemap_door_right
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

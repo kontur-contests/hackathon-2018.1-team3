@@ -26,7 +26,7 @@ public class PlayerAttributes : MonoBehaviour
     public Weapon CurrentPlayerWeapon;
     public int XOnMap;
     public int YOnMap;
-    private LevelMap currentMap;
+    public LevelMap currentMap;
     #endregion
     // Use this for initialization
     void Awake()
@@ -50,8 +50,8 @@ public class PlayerAttributes : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            string nextLevel = currentMap.GetRoomNameByCoords(XOnMap + 1, YOnMap);//4 listheners on transition;
-            SceneManager.LoadScene(nextLevel);
+            //string nextLevel = currentMap.GetRoomNameByCoords(XOnMap + 1, YOnMap);//4 listheners on transition;
+            //SceneManager.LoadScene(nextLevel);
         }
     }
 
@@ -111,10 +111,5 @@ public class PlayerAttributes : MonoBehaviour
         enduranceText.text = endurance.ToString();
         moneyText.text = money.ToString();
         awsText.text = awesomeness.ToString();
-    }
-
-    void onDoorEnter()
-    {
-
     }
 }

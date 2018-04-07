@@ -31,7 +31,7 @@ public class LevelMap
 
     public string GetRoomNameByCoords(int i, int j)
     {
-        if (i >= 0 & i < gridSize)
+        if (i >= 0 && i < gridSize)
             return locations[i, j].sceneName;
         else
         {
