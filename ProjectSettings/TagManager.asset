@@ -7,6 +7,7 @@ TagManager:
   - Door
   - Enemy
   - PlayerDetector
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,7 @@ TagManager:
     locked: 0
   - name: Stats
     uniqueID: 2730379695
+    locked: 0
   - name: OpenDoor
     uniqueID: 92663375
     locked: 0
