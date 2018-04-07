@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ad7aaef40bc94478a7cad0c2799be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 1383409490653830, guid: 8681fa0e399cee149a8cb077e673ca6c, type: 2}
+  Bullet: {fileID: 1466097535636202, guid: 0699f242a9b26654096b85d24946b8f5, type: 2}
 --- !u!212 &360644812
 SpriteRenderer:
   m_ObjectHideFlags: 0

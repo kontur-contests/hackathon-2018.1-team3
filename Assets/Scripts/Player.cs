@@ -1,11 +1,11 @@
-﻿using System;
-using Extensions;
+﻿using Extensions;
 using UnityEngine;
 using Weapons;
 
 public class Player : MovingObject
 {
     private Rigidbody2D rb2d;
+    private CircleCollider2D c2d;
     private PlayerAttributes playerAttributes;
     private bool allowedMoveUp;
     private bool allowedMoveDown;
@@ -13,6 +13,7 @@ public class Player : MovingObject
     private bool allowedMoveRight;
     private Weapon playerWeapon;
     public GameObject Bullet;
+    private int direction;
 
     protected override float ObjectSpeed
     {
@@ -23,6 +24,7 @@ public class Player : MovingObject
 	void Start ()
 	{
 	    rb2d = GetComponent<Rigidbody2D>();
+	    c2d = GetComponent<CircleCollider2D>();
         allowedMoveUp = true;
         allowedMoveDown = true;
         allowedMoveLeft = true;
@@ -91,6 +93,6 @@ public class Player : MovingObject
     {
         var fire = Input.GetKeyUp("space");
         if (fire)
-            Instantiate(Bullet);
+            Instantiate(Bullet, rb2d.position + new Vector2(c2d.radius + 1f, 0), Quaternion.identity);
     }
 }

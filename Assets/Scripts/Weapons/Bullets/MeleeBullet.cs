@@ -2,7 +2,7 @@
 
 public abstract class MeleeBullet : MovingObject
 {
-	private const int TtlLimit = 5;
+	private const int TtlLimit = 2;
 	private int ttl;
 
 	private float _objectSpeed = 0.01f;
@@ -10,7 +10,6 @@ public abstract class MeleeBullet : MovingObject
 	protected abstract Rigidbody2D rb2d { get; }
 
 	public abstract int Damage { get; }
-	
 
 	// Update is called once per frame
 	void Update()
@@ -23,6 +22,13 @@ public abstract class MeleeBullet : MovingObject
 		{
 			Destroy(gameObject);
 		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		Debug.Log("Hey");
+		if (!other.gameObject.CompareTag("Player"))
+			Destroy(gameObject);
 	}
 
 	protected override float ObjectSpeed
