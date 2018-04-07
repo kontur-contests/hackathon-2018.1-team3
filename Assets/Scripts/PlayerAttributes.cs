@@ -2,7 +2,9 @@
 using UnityEngine.UI;
 using Weapons;
 
-public class PlayerAttributes : MonoBehaviour {
+public class PlayerAttributes : MonoBehaviour
+{//TODO: Should be singletone;
+
 
     public Text healthText;
     public Text strengthText;
@@ -11,6 +13,7 @@ public class PlayerAttributes : MonoBehaviour {
     public Text moneyText;
     public Text awsText;
 
+    #region serializableAttributes
     public int health = 100;
     public int maxHealth;
     //public string weapon1;
@@ -22,29 +25,37 @@ public class PlayerAttributes : MonoBehaviour {
     public int awesomeness = 1000;
 
     public Weapon CurrentPlayerWeapon;
-
+    public int XOnMap;
+    public int YOnMap;
+    private LevelMap currentMap;
+    #endregion
     // Use this for initialization
     void Awake()
     {
-         maxHealth = 50 + 50 * endurance;
-         health = 100;
-         updateText();
+        maxHealth = 50 + 50 * endurance;
+        health = maxHealth;//?
+        currentMap = new LevelMap("comp1");
+        XOnMap = 0;//?
+        YOnMap = 0;
+
+        updateText();
     }
-    
-    void Start ()
+
+    void Start()
     {
         CurrentPlayerWeapon = new PlayerWeaponStorage().GetCurrentPlayerWeapon();
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         if (Input.GetMouseButtonDown(0))
             changeAwesomeness(awesomeness + 1);
-	}
+    }
 
     void onDeath()
     {
-        //TODO: 
+        //TODO: finish this
     }
 
     void changeHealth(int newValue)
@@ -98,5 +109,10 @@ public class PlayerAttributes : MonoBehaviour {
         enduranceText.text = endurance.ToString();
         moneyText.text = money.ToString();
         awsText.text = awesomeness.ToString();
+    }
+
+    void onDoorEnter()
+    {
+
     }
 }
