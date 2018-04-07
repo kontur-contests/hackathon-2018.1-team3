@@ -6,6 +6,7 @@ public class Enemy : MovingObject
 	private float _objectSpeed = 1.0f;
 	private Rigidbody2D rb2d;
     private bool followActive;
+	public int HP = 100;
 
     void Start()
 	{
@@ -36,6 +37,11 @@ public class Enemy : MovingObject
         {
             followActive = false;
         }
+	    if (collision.gameObject.CompareTag("Bullet"))
+	    {
+		    HP -= 20;
+		    Debug.Log(HP);
+	    }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
