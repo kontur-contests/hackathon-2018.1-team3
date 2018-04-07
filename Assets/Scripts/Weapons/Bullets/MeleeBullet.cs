@@ -15,9 +15,7 @@ public abstract class MeleeBullet : MovingObject
 	void Update()
 	{
 		ttl++;
-		var movementMultiplier = GetMovementMultiplier();
-		MoveObject(rb2d, new Vector2(movementMultiplier, 0)); // TODO: сделать направление
-		Debug.Log(ttl);
+		MoveObject(rb2d, GetNewMovementByDirection());
 		if (ttl >= TtlLimit)
 		{
 			Destroy(gameObject);
@@ -26,7 +24,6 @@ public abstract class MeleeBullet : MovingObject
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log("Hey");
 		if (!other.gameObject.CompareTag("Player"))
 			Destroy(gameObject);
 	}
@@ -34,5 +31,23 @@ public abstract class MeleeBullet : MovingObject
 	protected override float ObjectSpeed
 	{
 		get { return _objectSpeed; }
+	}
+
+	private Vector2 GetNewMovementByDirection()
+	{
+		var direction = PlayerAttributes.Direction;
+		var movementMultiplier = GetMovementMultiplier();
+		var x = 0f;
+		var y = 0f;
+		if (direction == Direction.Right)
+			x = movementMultiplier;
+		else if (direction == Direction.Left)
+			x = -movementMultiplier;
+		else if (direction == Direction.Top)
+			y = movementMultiplier;
+		else if (direction == Direction.Down)
+			y = movementMultiplier;
+		
+		return new Vector2(x, y);
 	}
 }

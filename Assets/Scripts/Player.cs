@@ -1,4 +1,5 @@
-﻿using Extensions;
+﻿using System;
+using Extensions;
 using UnityEngine;
 using Weapons;
 
@@ -13,7 +14,6 @@ public class Player : MovingObject
     private bool allowedMoveRight;
     private Weapon playerWeapon;
     public GameObject Bullet;
-    private int direction;
 
     protected override float ObjectSpeed
     {
@@ -61,9 +61,21 @@ public class Player : MovingObject
         {
             currentMovement.x = 0;
         }
+        else if (Math.Abs(currentMovement.x) < Math.Abs(currentMovement.y))
+        {
+            currentMovement.x = 0;
+        }
+        else
+        {
+            currentMovement.y = 0;
+        }
 
         if (currentMovement.HasMovementAtAnyAxis())
+        {
+            var direction = GetCurrentDirection(currentMovement);
+            PlayerAttributes.Direction = direction;
             MoveObject(rb2d, currentMovement);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -93,6 +105,35 @@ public class Player : MovingObject
     {
         var fire = Input.GetKeyUp("space");
         if (fire)
-            Instantiate(Bullet, rb2d.position + new Vector2(c2d.radius + 1f, 0), Quaternion.identity);
+            Instantiate(Bullet, rb2d.position + GetBulletInstantionPositionByDirection(), Quaternion.identity);
+    }
+
+    private Direction GetCurrentDirection(Vector2 currentMovement)
+    {
+        if (currentMovement.x >= float.Epsilon)
+            return Direction.Right;
+        if (currentMovement.x < -float.Epsilon)
+            return Direction.Left;
+        
+        return currentMovement.y >= float.Epsilon
+            ? Direction.Top
+            : Direction.Down;
+    }
+
+    private Vector2 GetBulletInstantionPositionByDirection()
+    {
+        var direction = PlayerAttributes.Direction;
+        var x = 0f;
+        var y = 0f;
+        if (direction == Direction.Right)
+            x = c2d.radius + 1f;
+        else if (direction == Direction.Left)
+            x = -c2d.radius - 1f;
+        else if (direction == Direction.Top)
+            y = c2d.radius + 1f;
+        else if (direction == Direction.Down)
+            y = -c2d.radius - 1f;
+		
+        return new Vector2(x, y);
     }
 }

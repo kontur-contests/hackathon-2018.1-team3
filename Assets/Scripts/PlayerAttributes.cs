@@ -2,8 +2,10 @@
 using UnityEngine.UI;
 using Weapons;
 
-public class PlayerAttributes : MonoBehaviour {
-
+public class PlayerAttributes : MonoBehaviour
+{
+    public static Direction Direction;
+    
     public Text healthText;
     public Text strengthText;
     public Text agilityText;
