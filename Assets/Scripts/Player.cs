@@ -41,7 +41,7 @@ public class Player : MovingObject
     private void AttemptToMove()
     {
         var currentMovement = GetCurrentMovement();
-        else if (Math.Abs(currentMovement.x) < Math.Abs(currentMovement.y))
+        if (Math.Abs(currentMovement.x) < Math.Abs(currentMovement.y))
         {
             currentMovement.x = 0;
         }
