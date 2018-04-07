@@ -529,7 +529,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 86851cbf3e72c9e439f1b081c7d017f8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8d42b9b765601845bc73b34a468996e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -555,7 +555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yourButton: {fileID: 1354165870}
-  nextLevel: 
+  nextLevel: scene1
 --- !u!1 &1922758062
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +653,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1b7425bbb44179543b01a20a5f2eaa20, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88e70af44f0b534438900e2d02c8783c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -777,7 +777,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: da21f218cdf8aa5489f6f443affa1d52, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 915a3c93d4f127d4ba326e03d2e94e7b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

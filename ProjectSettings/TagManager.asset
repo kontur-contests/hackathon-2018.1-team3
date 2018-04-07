@@ -4,6 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Door
   - Enemy
   - PlayerDetector
   layers:
@@ -18,7 +19,7 @@ TagManager:
   - Weapons
   - Player
   - 
-  - 
+  - Doors
   - Background
   - 
   - 
@@ -45,4 +46,6 @@ TagManager:
     locked: 0
   - name: Stats
     uniqueID: 2730379695
+  - name: OpenDoor
+    uniqueID: 92663375
     locked: 0
