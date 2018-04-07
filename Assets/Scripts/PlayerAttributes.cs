@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using Weapons;
 
 public class PlayerAttributes : MonoBehaviour {
 
@@ -22,16 +21,19 @@ public class PlayerAttributes : MonoBehaviour {
     public int money = 1000;
     public int awesomeness = 1000;
 
+    public Weapon CurrentPlayerWeapon;
+
     // Use this for initialization
     void Awake()
     {
-     maxHealth = 50 + 50 * endurance;
-     health = 100;
-     updateText();
-}
-    void Start () {
-
-        
+         maxHealth = 50 + 50 * endurance;
+         health = 100;
+         updateText();
+    }
+    
+    void Start ()
+    {
+        CurrentPlayerWeapon = new PlayerWeaponStorage().GetCurrentPlayerWeapon();
     }
 
     // Update is called once per frame
