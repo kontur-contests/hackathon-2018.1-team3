@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Location  {
+public class MyLocation  {
 
     public string sceneName;
     public bool[] hasRooms;// up down left right
 
-    Location(string name, bool up, bool down, bool left, bool right)
+    public MyLocation(string name, bool up, bool down, bool left, bool right)
     {
         sceneName = name;
         hasRooms = new bool[4];
