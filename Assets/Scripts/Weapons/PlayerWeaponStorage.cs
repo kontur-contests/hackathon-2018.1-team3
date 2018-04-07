@@ -1,33 +1,32 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization.Formatters;
 
 namespace Weapons
 {
     public class PlayerWeaponStorage
     {
-        private static HashSet<Weapon> playerWeapons;
+        private static Dictionary<string, Weapon> playerWeapons;
         private static object lockObject;
 
         public PlayerWeaponStorage()
         {
-            playerWeapons = new HashSet<Weapon>();
+            playerWeapons = new Dictionary<string, Weapon>();
             lockObject = new object();
         }
 
-        public HashSet<Weapon> GetAllPlayerWeapons()
+        public List<Weapon> GetAllPlayerWeapons()
         {
             lock (lockObject)
             {
-                return playerWeapons;
+                return playerWeapons.Values.ToList();
             }
         }
 
-        public Weapon GetPlayerWeapon(int id)
+        public Weapon GetPlayerWeapon(string name)
         {
             lock (lockObject)
             {
-                return playerWeapons.FirstOrDefault(w => w.Id == id);
+                return playerWeapons.FirstOrDefault(w => w.Key == name).Value;
             }  
         }
 
@@ -35,7 +34,7 @@ namespace Weapons
         {
             lock (lockObject)
             {
-                return playerWeapons.FirstOrDefault(w => w.IsCurrent);
+                return playerWeapons.FirstOrDefault(w => w.Value.IsCurrent).Value;
             }
         }
 
@@ -43,10 +42,10 @@ namespace Weapons
         {
             lock (lockObject)
             {
-                var weaponInStorage = GetPlayerWeapon(weapon.Id);
+                var weaponInStorage = GetPlayerWeapon(weapon.Name);
                 if (weaponInStorage != null)
-                    playerWeapons.Remove(weaponInStorage);
-                playerWeapons.Add(weapon);
+                    playerWeapons.Remove(weaponInStorage.Name);
+                playerWeapons.Add(weapon.Name, weapon);
             }
         }
 
@@ -56,10 +55,10 @@ namespace Weapons
             {
                 var currentPlayerWeapon = GetCurrentPlayerWeapon();
                 currentPlayerWeapon.IsCurrent = false;
-                var newCurrentPlayerWeapon = GetPlayerWeapon(weapon.Id);
+                var newCurrentPlayerWeapon = GetPlayerWeapon(weapon.Name);
                 if (newCurrentPlayerWeapon == null)
                 {
-                    playerWeapons.Add(weapon);
+                    playerWeapons.Add(weapon.Name, weapon);
                 }
                 else
                 {
