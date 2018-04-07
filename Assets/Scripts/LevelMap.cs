@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class LevelMap : MonoBehaviour {
+public class LevelMap 
+{
     MyLocation[,] locations;
+    private int gridSize = 25;
     public LevelMap(string composition)
     {
+
         if (composition == "comp1")
         {
-            int gridSize = 25;
+
             locations = new MyLocation[gridSize, gridSize];
             //pretty random level 1;
-            locations[0, 0] = new MyLocation("scene0", up:false, down:false, left:false, right:true);
+            locations[0, 0] = new MyLocation("scene0", up: false, down: false, left: false, right: true);
             locations[1, 0] = new MyLocation("scene1", up: false, down: false, left: false, right: true);
             locations[2, 0] = new MyLocation("scene2", up: false, down: false, left: false, right: true);
             locations[2, 1] = new MyLocation("scene3", up: false, down: false, left: false, right: true);
@@ -26,13 +29,25 @@ public class LevelMap : MonoBehaviour {
         }
     }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public string GetRoomNameByCoords(int i, int j)
+    {
+        if (i >= 0 & i < gridSize)
+            return locations[i, j].sceneName;
+        else
+        {
+            Debug.Log("Tried to visit incorrect room");
+            return "";
+        }
+    }
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }

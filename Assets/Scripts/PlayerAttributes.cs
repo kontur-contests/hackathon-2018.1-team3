@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Weapons;
 
@@ -35,7 +36,7 @@ public class PlayerAttributes : MonoBehaviour
         maxHealth = 50 + 50 * endurance;
         health = maxHealth;//?
         currentMap = new LevelMap("comp1");
-        XOnMap = 0;//?
+        XOnMap = 0;//I'm not entirely shre if this is called once per game or once per level. 
         YOnMap = 0;
 
         updateText();
@@ -50,7 +51,10 @@ public class PlayerAttributes : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
-            changeAwesomeness(awesomeness + 1);
+        {
+            string nextLevel = currentMap.GetRoomNameByCoords(XOnMap + 1, YOnMap);//4 listheners on transition;
+            SceneManager.LoadScene(nextLevel);
+        }
     }
 
     void onDeath()
