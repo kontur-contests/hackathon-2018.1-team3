@@ -12,6 +12,7 @@ public class Player : MovingObject
     private bool allowedMoveLeft;
     private bool allowedMoveRight;
     private Weapon playerWeapon;
+    public GameObject Bullet;
 
     protected override float ObjectSpeed
     {
@@ -88,8 +89,8 @@ public class Player : MovingObject
 
     private void AttemptToAttack()
     {
-        var fire = Input.GetAxisRaw("Fire1");
-        if (Math.Abs(fire) > 0.005f)
-            playerWeapon.Attack();
+        var fire = Input.GetKeyUp("space");
+        if (fire)
+            Instantiate(Bullet);
     }
 }

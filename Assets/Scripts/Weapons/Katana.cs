@@ -2,9 +2,14 @@
 {
     public class Katana: Weapon
     {
-        public override void Attack()
+        public override string Name
         {
-            Instantiate(gameObject.AddComponent<KatanaBullet>());
+            get
+            {
+                return "Katana";
+            }
+
+            set { }
         }
     }
 }

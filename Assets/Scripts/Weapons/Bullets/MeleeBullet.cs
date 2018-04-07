@@ -2,16 +2,15 @@
 
 public abstract class MeleeBullet : MovingObject
 {
-	private const int TtlLimit = 2;
+	private const int TtlLimit = 5;
 	private int ttl;
 
-	private float _objectSpeed = 0.1f;
+	private float _objectSpeed = 0.01f;
 
 	protected abstract Rigidbody2D rb2d { get; }
 
 	public abstract int Damage { get; }
 	
-	// Use this for initialization
 
 	// Update is called once per frame
 	void Update()
@@ -19,9 +18,10 @@ public abstract class MeleeBullet : MovingObject
 		ttl++;
 		var movementMultiplier = GetMovementMultiplier();
 		MoveObject(rb2d, new Vector2(movementMultiplier, 0)); // TODO: сделать направление
+		Debug.Log(ttl);
 		if (ttl >= TtlLimit)
 		{
-			Destroy(this);
+			Destroy(gameObject);
 		}
 	}
 

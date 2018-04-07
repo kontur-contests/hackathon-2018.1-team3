@@ -28,7 +28,7 @@ public class PlayerAttributes : MonoBehaviour {
     {
          maxHealth = 50 + 50 * endurance;
          health = 100;
-         updateText();
+       //  updateText();
     }
     
     void Start ()
