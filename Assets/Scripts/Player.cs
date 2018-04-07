@@ -4,7 +4,6 @@ using UnityEngine;
 public class Player : MovingObject
 {
     private Rigidbody2D rb2d;
-    private CircleCollider2D c2d;
     private bool allowedMoveUp;
     private bool allowedMoveDown;
     private bool allowedMoveLeft;
@@ -19,7 +18,6 @@ public class Player : MovingObject
 	void Start ()
 	{
 	    rb2d = GetComponent<Rigidbody2D>();
-	    c2d = GetComponent<CircleCollider2D>();
         allowedMoveUp = true;
         allowedMoveDown = true;
         allowedMoveLeft = true;
@@ -57,23 +55,6 @@ public class Player : MovingObject
         {
             rb2d.velocity = new Vector2(0, 0);
             collision.rigidbody.velocity = new Vector2(0, 0);
-        }
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {/*
-            var center = transform.position;
-            var otherCenter = collision.gameObject.transform.position;
-            var collisionPoint = collision.contacts[0].point;
-
-            allowedMoveUp = otherCenter.y <= collisionPoint.y && collisionPoint.y <= center.y;
-            allowedMoveDown = otherCenter.y >= collisionPoint.y && collisionPoint.y >= center.y;
-            allowedMoveLeft = otherCenter.x >= collisionPoint.x && collisionPoint.x >= center.x;
-            allowedMoveRight = otherCenter.x <= collisionPoint.x && collisionPoint.x <= center.x;
-            */
-            
         }
     }
 
