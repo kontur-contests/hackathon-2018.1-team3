@@ -49,7 +49,7 @@ public class PlayerAttributes : MonoBehaviour
         //TODO: 
     }
 
-    void changeHealth(int newValue)
+    void ChangeHealth(int newValue)
     {
         health = newValue;
         updateText();
@@ -100,5 +100,10 @@ public class PlayerAttributes : MonoBehaviour
         enduranceText.text = endurance.ToString();
         moneyText.text = money.ToString();
         awsText.text = awesomeness.ToString();
+    }
+
+    public void ChangeHealthValue(int change)
+    {
+        health += change;
     }
 }

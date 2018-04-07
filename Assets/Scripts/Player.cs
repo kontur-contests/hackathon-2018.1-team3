@@ -85,6 +85,11 @@ public class Player : MovingObject
             rb2d.velocity = new Vector2(0, 0);
             collision.rigidbody.velocity = new Vector2(0, 0);
         }
+
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            playerAttributes.ChangeHealthValue(-20);
+        }
     }
 
     private Vector2 GetCurrentMovement()
