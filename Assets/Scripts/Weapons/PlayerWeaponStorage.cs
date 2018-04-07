@@ -6,53 +6,65 @@ namespace Weapons
 {
     public class PlayerWeaponStorage
     {
-        private HashSet<Weapon> playerWeapons;
+        private static HashSet<Weapon> playerWeapons;
+        private static object lockObject;
 
         public PlayerWeaponStorage()
         {
             playerWeapons = new HashSet<Weapon>();
-        }
-
-        public PlayerWeaponStorage(HashSet<Weapon> playerWeapons)
-        {
-            this.playerWeapons = playerWeapons;
+            lockObject = new object();
         }
 
         public HashSet<Weapon> GetAllPlayerWeapons()
         {
-            return playerWeapons;
+            lock (lockObject)
+            {
+                return playerWeapons;
+            }
         }
 
         public Weapon GetPlayerWeapon(int id)
         {
-            return playerWeapons.FirstOrDefault(w => w.Id == id);
+            lock (lockObject)
+            {
+                return playerWeapons.FirstOrDefault(w => w.Id == id);
+            }  
         }
 
         public Weapon GetCurrentPlayerWeapon()
         {
-            return playerWeapons.FirstOrDefault(w => w.IsCurrent);
+            lock (lockObject)
+            {
+                return playerWeapons.FirstOrDefault(w => w.IsCurrent);
+            }
         }
 
         public void UpdateWeapon(Weapon weapon)
         {
-            var weaponInStorage = GetPlayerWeapon(weapon.Id);
-            if (weaponInStorage != null)
-                playerWeapons.Remove(weaponInStorage);
-            playerWeapons.Add(weapon);
+            lock (lockObject)
+            {
+                var weaponInStorage = GetPlayerWeapon(weapon.Id);
+                if (weaponInStorage != null)
+                    playerWeapons.Remove(weaponInStorage);
+                playerWeapons.Add(weapon);
+            }
         }
 
         public void SetCurrentPlayerWeapon(Weapon weapon)
         {
-            var currentPlayerWeapon = GetCurrentPlayerWeapon();
-            currentPlayerWeapon.IsCurrent = false;
-            var newCurrentPlayerWeapon = GetPlayerWeapon(weapon.Id);
-            if (newCurrentPlayerWeapon == null)
+            lock (lockObject)
             {
-                playerWeapons.Add(weapon);
-            }
-            else
-            {
-                newCurrentPlayerWeapon.IsCurrent = true;
+                var currentPlayerWeapon = GetCurrentPlayerWeapon();
+                currentPlayerWeapon.IsCurrent = false;
+                var newCurrentPlayerWeapon = GetPlayerWeapon(weapon.Id);
+                if (newCurrentPlayerWeapon == null)
+                {
+                    playerWeapons.Add(weapon);
+                }
+                else
+                {
+                    newCurrentPlayerWeapon.IsCurrent = true;
+                }
             }
         }
     }
