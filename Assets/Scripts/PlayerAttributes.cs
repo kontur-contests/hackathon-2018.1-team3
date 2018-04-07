@@ -5,8 +5,6 @@ using Weapons;
 
 public class PlayerAttributes : MonoBehaviour
 {//TODO: Should be singletone;
-
-
     public Text healthText;
     public Text strengthText;
     public Text agilityText;
