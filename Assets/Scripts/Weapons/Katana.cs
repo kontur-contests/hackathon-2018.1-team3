@@ -2,16 +2,9 @@
 {
     public class Katana: Weapon
     {
-        private MeleeBullet _bullet;
-
-        protected override MeleeBullet Bullet
+        public override void Attack()
         {
-            get { return _bullet; }
-        }
-
-        private void Start()
-        {
-            _bullet = gameObject.AddComponent<KatanaBullet>();
+            Instantiate(gameObject.AddComponent<KatanaBullet>());
         }
     }
 }

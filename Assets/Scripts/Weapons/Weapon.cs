@@ -4,11 +4,11 @@ namespace Weapons
 {
     public abstract class Weapon: MonoBehaviour
     {
-        protected abstract MeleeBullet Bullet { get; }
+        private MeleeBullet Bullet { get; set; }
         public string Name { get; set; }
         public bool IsCurrent { get; set; }
 
-        public void Attack()
+        public virtual void Attack()
         {
             Instantiate(Bullet);
         }

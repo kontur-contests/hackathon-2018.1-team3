@@ -1,13 +1,17 @@
-﻿using Extensions;
+﻿using System;
+using Extensions;
 using UnityEngine;
+using Weapons;
 
 public class Player : MovingObject
 {
     private Rigidbody2D rb2d;
+    private PlayerAttributes playerAttributes;
     private bool allowedMoveUp;
     private bool allowedMoveDown;
     private bool allowedMoveLeft;
     private bool allowedMoveRight;
+    private Weapon playerWeapon;
 
     protected override float ObjectSpeed
     {
@@ -22,10 +26,20 @@ public class Player : MovingObject
         allowedMoveDown = true;
         allowedMoveLeft = true;
         allowedMoveRight = true;
-    }
+	    playerAttributes = gameObject.AddComponent<PlayerAttributes>();
+	    playerWeapon = playerAttributes.CurrentPlayerWeapon
+	        ? playerAttributes.CurrentPlayerWeapon
+	        : gameObject.AddComponent<Katana>();
+	}
 	
 	// Update is called once per frame
     void Update()
+    {
+        AttemptToMove();
+        AttemptToAttack();
+    }
+
+    private void AttemptToMove()
     {
         var currentMovement = GetCurrentMovement();
         if (currentMovement.y > float.Epsilon && !allowedMoveUp) // Up
@@ -70,5 +84,12 @@ public class Player : MovingObject
             y = yMovement,
             z = 0
         };
+    }
+
+    private void AttemptToAttack()
+    {
+        var fire = Input.GetAxisRaw("Fire1");
+        if (Math.Abs(fire) > 0.005f)
+            playerWeapon.Attack();
     }
 }
