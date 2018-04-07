@@ -13,6 +13,7 @@ public class Player : MovingObject
     private bool allowedMoveLeft;
     private bool allowedMoveRight;
     private Weapon playerWeapon;
+    private float timeBeforeNextShoot;
     public GameObject Bullet;
 
     protected override float ObjectSpeed
@@ -88,9 +89,18 @@ public class Player : MovingObject
 
     private void AttemptToAttack()
     {
+        if (timeBeforeNextShoot > float.Epsilon)
+        {
+            timeBeforeNextShoot -= Time.deltaTime;
+            return;
+        }
+
         var fire = Input.GetKeyUp("space");
         if (fire)
+        {
             Instantiate(Bullet, rb2d.position + GetBulletInstantionPositionByDirection(), Quaternion.identity);
+            timeBeforeNextShoot = Time.deltaTime * 50;
+        }
     }
 
     private Direction GetCurrentDirection(Vector2 currentMovement)
