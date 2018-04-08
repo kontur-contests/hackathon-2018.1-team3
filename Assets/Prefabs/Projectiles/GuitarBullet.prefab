@@ -9,32 +9,32 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1100066742977510}
+  m_RootGameObject: {fileID: 1514583305004968}
   m_IsPrefabParent: 1
---- !u!1 &1100066742977510
+--- !u!1 &1514583305004968
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4628902099529960}
-  - component: {fileID: 50398363690647194}
-  - component: {fileID: 114656704586846124}
-  - component: {fileID: 70576219452775828}
+  - component: {fileID: 4790954574783688}
+  - component: {fileID: 50824141600798186}
+  - component: {fileID: 114910401240602640}
+  - component: {fileID: 70627640299904394}
   m_Layer: 0
-  m_Name: "\u0421lubBullet"
+  m_Name: GuitarBullet
   m_TagString: GuitarBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4628902099529960
+--- !u!4 &4790954574783688
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1100066742977510}
+  m_GameObject: {fileID: 1514583305004968}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 5.227, y: 0.251, z: 0.049021836}
   m_LocalScale: {x: 10, y: 10, z: 10}
@@ -42,13 +42,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50398363690647194
+--- !u!50 &50824141600798186
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1100066742977510}
+  m_GameObject: {fileID: 1514583305004968}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -62,12 +62,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &70576219452775828
+--- !u!70 &70627640299904394
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1100066742977510}
+  m_GameObject: {fileID: 1514583305004968}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -77,12 +77,12 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.05, y: 0.05}
   m_Direction: 1
---- !u!114 &114656704586846124
+--- !u!114 &114910401240602640
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1100066742977510}
+  m_GameObject: {fileID: 1514583305004968}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4924e023910b4fdfb657a33c1825c071, type: 3}

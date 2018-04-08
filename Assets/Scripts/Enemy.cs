@@ -55,13 +55,19 @@ public class Enemy : MovingObject
         {
             followActive = false;
         }
-	    if (collision.gameObject.CompareTag("KatanaBullet"))
+	    else if (collision.gameObject.CompareTag("KatanaBullet"))
 	    {
 		    HP -= 20;
 		    if (HP <= 0)
 			    Destroy(gameObject);
 	    }
-	    if (collision.gameObject.CompareTag("ClubBullet"))
+	    else if (collision.gameObject.CompareTag("GuitarBullet"))
+	    {
+		    HP -= 30;
+		    if (HP <= 0)
+			    Destroy(gameObject);
+	    }
+	    else if (collision.gameObject.CompareTag("ClubBullet"))
 	    {
 		    HP -= 20;
 		    collateralDamageTimer = Time.deltaTime * 5;
