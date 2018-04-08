@@ -117,31 +117,31 @@ NavMeshSettings:
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114353105690946576, guid: 7cbb5eaffb355ec43b7a90783ed99823,
     type: 2}
-  m_PrefabInternal: {fileID: 2116601521}
+  m_PrefabInternal: {fileID: 1602854965}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &242865826 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114723831900861722, guid: 7cbb5eaffb355ec43b7a90783ed99823,
     type: 2}
-  m_PrefabInternal: {fileID: 2116601521}
+  m_PrefabInternal: {fileID: 1602854965}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &402774364 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114011146507858802, guid: 7cbb5eaffb355ec43b7a90783ed99823,
     type: 2}
-  m_PrefabInternal: {fileID: 2116601521}
+  m_PrefabInternal: {fileID: 1602854965}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &519881374 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114495447693640032, guid: 7cbb5eaffb355ec43b7a90783ed99823,
     type: 2}
-  m_PrefabInternal: {fileID: 2116601521}
+  m_PrefabInternal: {fileID: 1602854965}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &698234774 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114598189796395986, guid: 7cbb5eaffb355ec43b7a90783ed99823,
     type: 2}
-  m_PrefabInternal: {fileID: 2116601521}
+  m_PrefabInternal: {fileID: 1602854965}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1140169746
 Prefab:
@@ -212,49 +212,11 @@ Prefab:
       propertyPath: awsText
       value: 
       objectReference: {fileID: 698234774}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114198498940913048, guid: f6f489cee6f481b4485db9c63d0647dd, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: f6f489cee6f481b4485db9c63d0647dd, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1780349930 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1347429365713986, guid: f6f489cee6f481b4485db9c63d0647dd,
-    type: 2}
-  m_PrefabInternal: {fileID: 1140169746}
---- !u!95 &1780349931
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1780349930}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b57f1813ee4f2e74d8712695aafebdce, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &1780349932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1780349930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15d46e2d9b9234947928c61b5fdd4e31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1951237398 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114236379222708656, guid: 7cbb5eaffb355ec43b7a90783ed99823,
-    type: 2}
-  m_PrefabInternal: {fileID: 2116601521}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!1001 &2116601521
+--- !u!1001 &1602854965
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2

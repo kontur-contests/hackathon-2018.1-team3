@@ -15,20 +15,19 @@ public class DoorEnter : MonoBehaviour {
     {
         if (other.CompareTag("Door"))
         {
-            var tilemap = other.gameObject.GetComponent<Tilemap>();
-            if (tilemap.name == "Tilemap_door_up")
+            if (other.gameObject.name == "DoorUp")
             {
                 ChangeRoom(new Vector2Int(0, 1), new Vector3(0.3f, -3.7f, -1));
             }
-            else if (tilemap.name == "Tilemap_door_down")
+            else if (other.gameObject.name == "DoorDown")
             {
                 ChangeRoom(new Vector2Int(0, -1), new Vector3(-0.35f, 4, -1));
             }
-            else if (tilemap.name == "Tilemap_door_left")
+            else if (other.gameObject.name == "DoorLeft")
             {
                 ChangeRoom(new Vector2Int(-1, 0), new Vector3(5.5f, 0.5f, -1));
             }
-            else if (tilemap.name == "Tilemap_door_right")
+            else if (other.gameObject.name == "DoorRight")
             {
                 ChangeRoom(new Vector2Int(1, 0), new Vector3(-5.7f, 0, -1));
             }
@@ -37,10 +36,14 @@ public class DoorEnter : MonoBehaviour {
 
     private void ChangeRoom(Vector2Int dir, Vector3 playerPos)
     {
-        playerAttrs.XOnMap += dir.x;
-        playerAttrs.YOnMap += dir.y;
-        string nextRoom = playerAttrs.currentMap.GetRoomNameByCoords(playerAttrs.XOnMap, playerAttrs.YOnMap);
-        gameObject.transform.position = playerPos;
-        SceneManager.LoadScene(nextRoom);
+        string nextRoom = playerAttrs.currentMap.GetRoomNameByCoords(playerAttrs.XOnMap + dir.x, playerAttrs.YOnMap + dir.y);
+        if (nextRoom != "")
+        {
+            playerAttrs.XOnMap += dir.x;
+            playerAttrs.YOnMap += dir.y;
+            gameObject.transform.position = playerPos;
+            SceneManager.LoadScene(nextRoom);
+            
+        }
     }
 }
