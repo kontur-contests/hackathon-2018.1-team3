@@ -41,3 +41,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RoomPoolOne/Monsters/Pool1-Monsters-7.unity
     guid: 5d405c5c8ee1f894fbe14234853c0404
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: ef97d724c88ef4044a581d14ccf5942e
