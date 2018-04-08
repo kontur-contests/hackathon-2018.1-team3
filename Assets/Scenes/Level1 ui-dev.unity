@@ -119,6 +119,22 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2116601521}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &21000843 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1135496882818398, guid: 7cbb5eaffb355ec43b7a90783ed99823,
+    type: 2}
+  m_PrefabInternal: {fileID: 2116601521}
+--- !u!114 &21000845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 21000843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7850e842bce674fa0c3d1a4688e223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &242865826 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114723831900861722, guid: 7cbb5eaffb355ec43b7a90783ed99823,
@@ -217,6 +233,11 @@ Prefab:
       propertyPath: awsText
       value: 
       objectReference: {fileID: 698234774}
+    - target: {fileID: 114694796963955738, guid: f6f489cee6f481b4485db9c63d0647dd,
+        type: 2}
+      propertyPath: flask
+      value: 
+      objectReference: {fileID: 1381647059}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6f489cee6f481b4485db9c63d0647dd, type: 2}
   m_IsPrefabParent: 0
@@ -479,6 +500,30 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: 243.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899911213888292, guid: 7cbb5eaffb355ec43b7a90783ed99823, type: 2}
+      propertyPath: m_TagString
+      value: Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546796479783400, guid: 7cbb5eaffb355ec43b7a90783ed99823, type: 2}
+      propertyPath: m_TagString
+      value: Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831722216576520, guid: 7cbb5eaffb355ec43b7a90783ed99823, type: 2}
+      propertyPath: m_TagString
+      value: Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637840752079952, guid: 7cbb5eaffb355ec43b7a90783ed99823, type: 2}
+      propertyPath: m_TagString
+      value: Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 1135496882818398, guid: 7cbb5eaffb355ec43b7a90783ed99823, type: 2}
+      propertyPath: m_TagString
+      value: Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400863827329226, guid: 7cbb5eaffb355ec43b7a90783ed99823, type: 2}
+      propertyPath: m_TagString
+      value: Text
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cbb5eaffb355ec43b7a90783ed99823, type: 2}

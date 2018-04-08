@@ -26,7 +26,7 @@ public class Player : MovingObject
 	{
 	    rb2d = GetComponent<Rigidbody2D>();
 	    c2d = GetComponent<CircleCollider2D>();
-	    playerAttributes = gameObject.AddComponent<PlayerAttributes>();
+	    playerAttributes = GetComponent<PlayerAttributes>();
 	    playerWeapon = playerAttributes.CurrentPlayerWeapon
 	        ? playerAttributes.CurrentPlayerWeapon
 	        : gameObject.AddComponent<Katana>();

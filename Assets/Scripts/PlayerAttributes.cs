@@ -45,24 +45,14 @@ public class PlayerAttributes : MonoBehaviour
         XOnMap = 0;//I'm not entirely shre if this is called once per game or once per level. 
         YOnMap = 0;
 
-        updateText();
     }
 
     void Start()
     {
-        var flasks = flask.GetComponentInChildren<Sprite>();
+        //var flasks = flask.GetComponentInChildren<Sprite>();
         CurrentPlayerWeapon = new PlayerWeaponStorage().GetCurrentPlayerWeapon();
-    }
+        updateText();
 
-    // Update is called once per frame
-    void Update()
-    {
-//            changeAwesomeness(awesomeness + 1);
-        {
-            ChangeHealth(health-25);
-            //string nextLevel = currentMap.GetRoomNameByCoords(XOnMap + 1, YOnMap);//4 listheners on transition;
-            //SceneManager.LoadScene(nextLevel);
-        }
     }
 
     void onDeath()
@@ -107,13 +97,18 @@ public class PlayerAttributes : MonoBehaviour
         updateText();
     }
 
-    void updateText()
+    public void updateText()
     {
+        if (healthText == null)
+        {
+            Debug.Log("solution");
+        }
+
         if (health > 0)
             healthText.text = health.ToString();
         else
         {
-            healthText.text = "0";
+            this.healthText.text = "0";
             onDeath();
         }
 
@@ -129,4 +124,27 @@ public class PlayerAttributes : MonoBehaviour
         health += change;
         updateText();
     }
+
+    void OnLevelWasLoaded(int level)
+    {
+        var texts = SceneManager.GetActiveScene().GetRootGameObjects()[0].GetComponentsInChildren<Text>();
+       
+        for (int i=0; i<texts.Length;i++)
+        {
+            if (texts[i].name == "HealthText")
+                healthText = texts[i];
+            else if (texts[i].name == "StrengthText")
+                strengthText = texts[i];
+            else if (texts[i].name == "AgilityText")
+                agilityText = texts[i];
+            else if (texts[i].name == "EnduranceText")
+                enduranceText = texts[i];
+            else if (texts[i].name == "MoneyCount")
+                moneyText = texts[i];
+            else if (texts[i].name == "AwsCount")
+                awsText = texts[i];
+        }
+        updateText();
 }
+}
+
