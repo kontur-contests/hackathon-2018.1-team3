@@ -56,6 +56,16 @@ public class Player : MovingObject
             var direction = GetCurrentDirection(currentMovement);
             PlayerAttributes.Direction = direction;
             MoveObject(rb2d, currentMovement);
+
+
+        if(Input.GetButton("Drink"))
+        {
+            var attr = GetComponent<PlayerAttributes>();
+            if (attr.flaskCharges>0&&attr.health<attr.maxHealth)
+            {
+                attr.flaskCharges--;
+                attr.health = attr.maxHealth;
+            }
         }
     }
 
