@@ -20,12 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4555079198264294}
   - component: {fileID: 212866430962323386}
-  - component: {fileID: 61196826920283706}
   - component: {fileID: 114874233246168976}
   - component: {fileID: 50301776191768346}
   - component: {fileID: 114414654799812808}
   - component: {fileID: 114694796963955738}
-  - component: {fileID: 114198498940913048}
+  - component: {fileID: 58962972070395822}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -66,8 +65,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61196826920283706
-BoxCollider2D:
+--- !u!58 &58962972070395822
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -79,41 +78,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.64, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
-  m_EdgeRadius: 0
---- !u!114 &114198498940913048
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1347429365713986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 298cc57c21b14f24ebcc4bcb24d37b24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorUpOpen: {fileID: 21300000, guid: acff66509ddedbf45b4b8745ca82f6ac, type: 3}
-  doorUpClosed: {fileID: 21300000, guid: c463ad9a81225fe4d84b6d0fac5bb443, type: 3}
-  wallUp: {fileID: 21300000, guid: 388014dbb489b1448b796caef5deae40, type: 3}
-  doorDownOpen: {fileID: 21300000, guid: 55d3240fabe48844fa83b144ebf83142, type: 3}
-  doorDownClosed: {fileID: 21300000, guid: aa19ddbebf02e0749a11d1ade730873b, type: 3}
-  wallDown: {fileID: 21300000, guid: 62fda8d426c09b447ad449692e571632, type: 3}
-  doorLeftOpen: {fileID: 21300000, guid: 03f64b7fb1d44ba42ad79f9a13ea2351, type: 3}
-  doorLeftClosed: {fileID: 21300000, guid: c9eeaaee4d09fba4989f558eb5ce9750, type: 3}
-  wallLeft: {fileID: 21300000, guid: 4fd7e2b652746cf41a8052238ff0659d, type: 3}
-  doorRightOpen: {fileID: 21300000, guid: f367b1f25463ed84c8dcdb85028223b7, type: 3}
-  doorRightClosed: {fileID: 21300000, guid: 52932e118a0c9774bbef281103e8fd5e, type: 3}
-  wallRight: {fileID: 21300000, guid: a9506e66d68a7fc4596e79b6b0aa3f9e, type: 3}
+  m_Radius: 0.25
 --- !u!114 &114414654799812808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,6 +115,8 @@ MonoBehaviour:
   endurance: 1
   money: 1000
   awesomeness: 1000
+  flaskCharges: 2
+  CurrentPlayerWeapon: {fileID: 0}
   XOnMap: 0
   YOnMap: 0
 --- !u!114 &114874233246168976
@@ -162,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ad7aaef40bc94478a7cad0c2799be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bullet: {fileID: 1466097535636202, guid: 0699f242a9b26654096b85d24946b8f5, type: 2}
 --- !u!212 &212866430962323386
 SpriteRenderer:
   m_ObjectHideFlags: 1
