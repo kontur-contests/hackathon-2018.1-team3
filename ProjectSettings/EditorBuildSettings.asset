@@ -9,5 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: d92890d37b6ca714fad975782913ad76
   - enabled: 1
-    path: Assets/Scenes/Level1 ui-dev.unity
+    path: Assets/Scenes/RoomPoolOne/Pool1-Start-4way.unity
     guid: ef75206e08bd7a44cac3e0657cd31925
+  - enabled: 1
+    path: Assets/Scenes/RoomPoolOne/Pool1-Monster-4way.unity
+    guid: afb8457ed6fc2ff47b816eda36a7d8f8

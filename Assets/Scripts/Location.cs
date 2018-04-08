@@ -17,6 +17,13 @@ public class MyLocation  {
         hasRooms[3] =right;
     }
 
+    public MyLocation()
+    {
+        sceneName = "";
+        hasRooms = new bool[4];
+        for (var i = 0; i < 4; i++)
+            hasRooms[i] = false;
+    }
 
 	// Use this for initialization
 }

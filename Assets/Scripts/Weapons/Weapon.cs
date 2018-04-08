@@ -1,9 +1,11 @@
-﻿namespace Weapons
+﻿using UnityEngine;
+
+namespace Weapons
 {
-    public abstract class Weapon
+    public abstract class Weapon: MonoBehaviour
     {
-        public string Name { get; set; }
-        public abstract float Attack { get; set; }
+        private MeleeBullet Bullet { get; set; }
+        public abstract string Name { get; set; }
         public bool IsCurrent { get; set; }
     }
 }
