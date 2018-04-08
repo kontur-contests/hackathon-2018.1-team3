@@ -7,8 +7,10 @@ public class LevelMap
 
     public LevelMap(string composition)
     {
+
         if (composition == "comp1")
         {
+
             locations = new MyLocation[gridSize, gridSize];
             //pretty random level 1;
             locations[0, 0] = new MyLocation("Pool1-Monster-4way", up: false, down: false, left: false, right: true);

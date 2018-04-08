@@ -5,6 +5,8 @@ using Weapons;
 
 public class PlayerAttributes : MonoBehaviour
 {//TODO: Should be singletone;
+    public static Direction Direction;
+    
     public Text healthText;
     public Text strengthText;
     public Text agilityText;
@@ -22,6 +24,7 @@ public class PlayerAttributes : MonoBehaviour
     public int endurance = 1;
     public int money = 1000;
     public int awesomeness = 1000;
+    public int flaskCharges = 2;
 
     public Weapon CurrentPlayerWeapon;
     public int XOnMap;
@@ -51,8 +54,9 @@ public class PlayerAttributes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+//            changeAwesomeness(awesomeness + 1);
         {
+            ChangeHealth(health-25);
             //string nextLevel = currentMap.GetRoomNameByCoords(XOnMap + 1, YOnMap);//4 listheners on transition;
             //SceneManager.LoadScene(nextLevel);
         }
@@ -60,10 +64,11 @@ public class PlayerAttributes : MonoBehaviour
 
     void onDeath()
     {
-        //TODO: finish this
+        Debug.Log("You died!!!");
+
     }
 
-    void changeHealth(int newValue)
+    void ChangeHealth(int newValue)
     {
         health = newValue;
         updateText();
@@ -114,5 +119,11 @@ public class PlayerAttributes : MonoBehaviour
         enduranceText.text = endurance.ToString();
         moneyText.text = money.ToString();
         awsText.text = awesomeness.ToString();
+    }
+
+    public void ChangeHealthValue(int change)
+    {
+        health += change;
+        updateText();
     }
 }
