@@ -51,21 +51,9 @@ public class PlayerAttributes : MonoBehaviour
         CurrentPlayerWeapon = new PlayerWeaponStorage().GetCurrentPlayerWeapon();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-//            changeAwesomeness(awesomeness + 1);
-        {
-            ChangeHealth(health-25);
-            //string nextLevel = currentMap.GetRoomNameByCoords(XOnMap + 1, YOnMap);//4 listheners on transition;
-            //SceneManager.LoadScene(nextLevel);
-        }
-    }
-
     void onDeath()
     {
         Debug.Log("You died!!!");
-
     }
 
     void ChangeHealth(int newValue)
