@@ -72,21 +72,7 @@ public class Player : MovingObject
             playerAttributes.ChangeHealthValue(-20);
         }
     }
-
-    private Vector2 GetCurrentMovement()
-    {
-        var inputMupltiplier = GetMovementMultiplier();
-        var xMovement = inputMupltiplier * Input.GetAxisRaw("Horizontal");
-        var yMovement = inputMupltiplier * Input.GetAxisRaw("Vertical");
-
-        return new Vector3
-        {
-            x = xMovement,
-            y = yMovement,
-            z = 0
-        };
-    }
-
+    
     private void AttemptToAttack()
     {
         if (timeBeforeNextShoot > float.Epsilon)
@@ -102,19 +88,7 @@ public class Player : MovingObject
             timeBeforeNextShoot = Time.deltaTime * 50;
         }
     }
-
-    private Direction GetCurrentDirection(Vector2 currentMovement)
-    {
-        if (currentMovement.x >= float.Epsilon)
-            return Direction.Right;
-        if (currentMovement.x < -float.Epsilon)
-            return Direction.Left;
-        
-        return currentMovement.y >= float.Epsilon
-            ? Direction.Top
-            : Direction.Down;
-    }
-
+     
     private Vector2 GetBulletInstantionPositionByDirection()
     {
         var direction = PlayerAttributes.Direction;
@@ -130,5 +104,31 @@ public class Player : MovingObject
             y = -c2d.radius - 1f;
 		
         return new Vector2(x, y);
+    }
+
+    private Vector2 GetCurrentMovement()
+    {
+        var inputMupltiplier = GetMovementMultiplier();
+        var xMovement = inputMupltiplier * Input.GetAxisRaw("Horizontal");
+        var yMovement = inputMupltiplier * Input.GetAxisRaw("Vertical");
+
+        return new Vector3
+        {
+            x = xMovement,
+            y = yMovement,
+            z = 0
+        };
+    }
+
+    private Direction GetCurrentDirection(Vector2 currentMovement)
+    {
+        if (currentMovement.x >= float.Epsilon)
+            return Direction.Right;
+        if (currentMovement.x < -float.Epsilon)
+            return Direction.Left;
+        
+        return currentMovement.y >= float.Epsilon
+            ? Direction.Top
+            : Direction.Down;
     }
 }
