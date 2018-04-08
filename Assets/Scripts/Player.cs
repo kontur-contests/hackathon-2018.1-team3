@@ -65,6 +65,7 @@ public class Player : MovingObject
                 {
                     attr.flaskCharges--;
                     attr.health = attr.maxHealth;
+                    attr.updateText();
                 }
             }
         }

@@ -13,14 +13,14 @@ public class LevelMap
 
             locations = new MyLocation[gridSize, gridSize];
             //pretty random level 1;
-            locations[0, 0] = new MyLocation("Pool1-Monsters-1", up: false, down: false, left: false, right: true);
-            locations[1, 0] = new MyLocation("Pool1-Monsters-2", up: false, down: false, left: false, right: true);
-            locations[2, 0] = new MyLocation("Pool1-Monsters-3", up: false, down: false, left: false, right: true);
-            locations[2, 1] = new MyLocation("Pool1-Monsters-4", up: false, down: false, left: false, right: true);
-            locations[3, 1] = new MyLocation("Pool1-Monsters-5", up: false, down: false, left: false, right: true);
-            locations[4, 1] = new MyLocation("Pool1-Monsters-6", up: false, down: false, left: false, right: true);
-            locations[3, 0] = new MyLocation("Pool1-Monsters-7", up: false, down: false, left: false, right: true);
-            locations[3, 2] = new MyLocation("Pool1-Monster-4way", up: false, down: false, left: false, right: true);//reward room?
+            locations[0, 0] = new MyLocation("Pool1-Start-4way", up: false, down: false, left: false, right: true);
+            locations[1, 0] = new MyLocation("Pool1-Monsters-1", up: false, down: false, left: false, right: true);
+            locations[2, 0] = new MyLocation("Pool1-Monsters-2", up: false, down: false, left: false, right: true);
+            locations[2, 1] = new MyLocation("Pool1-Monsters-3", up: false, down: false, left: false, right: true);
+            locations[3, 1] = new MyLocation("Pool1-Monsters-4", up: false, down: false, left: false, right: true);
+            locations[4, 1] = new MyLocation("Pool1-Monsters-5", up: false, down: false, left: false, right: true);
+            locations[3, 0] = new MyLocation("Pool1-Monsters-6", up: false, down: false, left: false, right: true);
+            locations[3, 2] = new MyLocation("Pool1-Monsters-7", up: false, down: false, left: false, right: true);//reward room?
             locations[3, 3] = new MyLocation("Pool1-Monsters-8", up: false, down: false, left: false, right: true);
             locations[5, 1] = new MyLocation("Pool1-Boss", up: false, down: false, left: false, right: true);
             locations[6, 1] = new MyLocation("Pool1-Shop", up: false, down: false, left: false, right: true);
