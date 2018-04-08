@@ -25,29 +25,19 @@ public class Enemy : MovingObject
 	{
 		AttemptToAttack();
 		AttemptToAddCollateralDamage();
-	}
 
-	private void OnTriggerStay2D(Collider2D other)
-	{
-		if (other.CompareTag("Player") && followActive)
-		{
-			var center = transform.position;
-			var otherCenter = other.transform.position;
+        if (followActive)
+        {
+            var center = transform.position;
+            var playerCenter = GameObject.Find("Player").transform.position;
+            
+            var necessaryMovement = CalculateNecessaryMovementValues(playerCenter);
+            direction = GetCurrentDirection(necessaryMovement);
+            MoveObject(rb2d, necessaryMovement);
 
-			if ((center - otherCenter).Length() <= other.bounds.extents.Length() + 0.2)
-			{
-				rb2d.velocity = new Vector2(0, 0);
-			}
-			else
-			{
-				var necessaryMovement = CalculateNecessaryMovementValues(otherCenter);
-				direction = GetCurrentDirection(necessaryMovement);
-				MoveObject(rb2d, necessaryMovement);
-			}
-
-			attack = true;
-		}
-	}
+            attack = true;
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
