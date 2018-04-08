@@ -9,14 +9,12 @@ public class PlayerAnimation : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
-        playerWeapon = PlayerAttributes.CurrentPlayerWeapon;
         anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update() {
 
-        playerWeapon = GetComponent<PlayerAttributes>().CurrentPlayerWeapon;
         if (playerWeapon != null)
         {
             switch (playerWeapon.name)
