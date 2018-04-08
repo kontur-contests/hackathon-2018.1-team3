@@ -80,7 +80,7 @@ public class Player : MovingObject
 
         if (collision.gameObject.CompareTag("EnemyBullet"))
         {
-            playerAttributes.ChangeHealthValue(-20);
+            playerAttributes.ChangeHealthValue(-10);
         }
     }
     
