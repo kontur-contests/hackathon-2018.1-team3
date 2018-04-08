@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Weapons;
 
 public class PlayerAnimation : MonoBehaviour {
@@ -11,6 +9,7 @@ public class PlayerAnimation : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
+        playerWeapon = PlayerAttributes.CurrentPlayerWeapon;
         anim = GetComponent<Animator>();
     }
 

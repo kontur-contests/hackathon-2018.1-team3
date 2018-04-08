@@ -88,7 +88,7 @@ public class Enemy : MovingObject
 			return;
 		
 		Instantiate(Bullet, rb2d.position + GetBulletInstantionPositionByDirection(), Quaternion.identity);
-		timeBeforeNextShoot = Time.deltaTime * 50;
+		timeBeforeNextShoot = Time.deltaTime * 10;
 	}
 
 	private void AttemptToAddCollateralDamage()

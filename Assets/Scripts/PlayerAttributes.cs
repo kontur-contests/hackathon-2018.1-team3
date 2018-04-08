@@ -6,7 +6,7 @@ using Weapons;
 public class PlayerAttributes : MonoBehaviour
 {//TODO: Should be singletone;
     public static Direction Direction;
-    
+
     public Text healthText;
     public Text strengthText;
     public Text agilityText;
@@ -26,7 +26,7 @@ public class PlayerAttributes : MonoBehaviour
     public int awesomeness = 1000;
     public int flaskCharges = 2;
 
-    public Weapon CurrentPlayerWeapon;
+    public static Weapon CurrentPlayerWeapon;
     public int XOnMap;
     public int YOnMap;
     public LevelMap currentMap;
@@ -42,13 +42,19 @@ public class PlayerAttributes : MonoBehaviour
         currentMap = new LevelMap("comp1");
         XOnMap = 0;//I'm not entirely shre if this is called once per game or once per level. 
         YOnMap = 0;
-
-        updateText();
+        var currentPlayerWeapon = new PlayerWeaponStorage().GetCurrentPlayerWeapon();
+        CurrentPlayerWeapon = currentPlayerWeapon
+            ? currentPlayerWeapon
+            : gameObject.AddComponent<Katana>();
     }
 
     void Start()
     {
-        CurrentPlayerWeapon = new PlayerWeaponStorage().GetCurrentPlayerWeapon();
+        var currentPlayerWeapon = new PlayerWeaponStorage().GetCurrentPlayerWeapon();
+        CurrentPlayerWeapon = currentPlayerWeapon
+            ? currentPlayerWeapon
+            : gameObject.AddComponent<Katana>();
+
     }
 
     void onDeath()
@@ -92,7 +98,7 @@ public class PlayerAttributes : MonoBehaviour
         updateText();
     }
 
-    void updateText()
+    public void updateText()
     {
         if (health > 0)
             healthText.text = health.ToString();
@@ -112,6 +118,28 @@ public class PlayerAttributes : MonoBehaviour
     public void ChangeHealthValue(int change)
     {
         health += change;
+        updateText();
+    }
+
+    void OnLevelWasLoaded(int level)
+    {
+        var texts = SceneManager.GetActiveScene().GetRootGameObjects()[0].GetComponentsInChildren<Text>();
+
+        for (int i = 0; i < texts.Length; i++)
+        {
+            if (texts[i].name == "HealthText")
+                healthText = texts[i];
+            else if (texts[i].name == "StrengthText")
+                strengthText = texts[i];
+            else if (texts[i].name == "AgilityText")
+                agilityText = texts[i];
+            else if (texts[i].name == "EnduranceText")
+                enduranceText = texts[i];
+            else if (texts[i].name == "MoneyCount")
+                moneyText = texts[i];
+            else if (texts[i].name == "AwsCount")
+                awsText = texts[i];
+        }
         updateText();
     }
 }
