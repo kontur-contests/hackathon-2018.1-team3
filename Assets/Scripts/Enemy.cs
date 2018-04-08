@@ -6,8 +6,8 @@ public class Enemy : MovingObject
 	private float _objectSpeed = 1.0f;
 	private Rigidbody2D rb2d;
 	private CircleCollider2D c2d;
-    private bool followActive;
-	private bool attack;
+    public bool followActive;
+	public bool attack;
 	private float timeBeforeNextShoot;
 	private float collateralDamageTimer;
 	private Direction direction;
@@ -36,6 +36,7 @@ public class Enemy : MovingObject
             MoveObject(rb2d, necessaryMovement);
 
             attack = true;
+
         }
     }
 
