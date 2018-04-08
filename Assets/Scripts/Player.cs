@@ -12,7 +12,6 @@ public class Player : MovingObject
     private bool allowedMoveDown;
     private bool allowedMoveLeft;
     private bool allowedMoveRight;
-    private Weapon playerWeapon;
     private float timeBeforeNextShoot;
     public GameObject Bullet;
 
@@ -27,9 +26,7 @@ public class Player : MovingObject
 	    rb2d = GetComponent<Rigidbody2D>();
 	    c2d = GetComponent<CircleCollider2D>();
 	    playerAttributes = GetComponent<PlayerAttributes>();
-	    playerWeapon = playerAttributes.CurrentPlayerWeapon
-	        ? playerAttributes.CurrentPlayerWeapon
-	        : gameObject.AddComponent<Katana>();
+	    Bullet = Resources.Load("Prefabs/Projectiles/KatanaBullet") as GameObject;
 	}
 	
 	// Update is called once per frame
