@@ -422,6 +422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4255295660584538}
   - component: {fileID: 114812904433051598}
+  - component: {fileID: 114541541907494832}
   m_Layer: 0
   m_Name: RoomPrefab
   m_TagString: Untagged
@@ -1188,7 +1189,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e624d878e35238e4fa37f24a5ae26182, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1288,6 +1289,20 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
+--- !u!114 &114541541907494832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1639776373830852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c560427d20c424d9770e26954e56ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  ispuse: 0
+  guipuse: 0
 --- !u!114 &114598189796395986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1375,7 +1390,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d9be62be31540c540a8d2153949c54dd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
