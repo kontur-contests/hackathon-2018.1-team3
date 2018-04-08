@@ -60,6 +60,8 @@ public class PlayerAttributes : MonoBehaviour
     void onDeath()
     {
         Debug.Log("You died!!!");
+        SceneManager.LoadScene("EndGame");
+        Destroy(gameObject);
     }
 
     void ChangeHealth(int newValue)
