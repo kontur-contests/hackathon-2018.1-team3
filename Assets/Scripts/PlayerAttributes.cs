@@ -26,7 +26,7 @@ public class PlayerAttributes : MonoBehaviour
     public int awesomeness = 1000;
     public int flaskCharges = 2;
 
-    public Weapon CurrentPlayerWeapon;
+    public static Weapon CurrentPlayerWeapon;
     public int XOnMap;
     public int YOnMap;
     public LevelMap currentMap;
@@ -42,13 +42,19 @@ public class PlayerAttributes : MonoBehaviour
         currentMap = new LevelMap("comp1");
         XOnMap = 0;//I'm not entirely shre if this is called once per game or once per level. 
         YOnMap = 0;
-
+        var currentPlayerWeapon = new PlayerWeaponStorage().GetCurrentPlayerWeapon();
+        CurrentPlayerWeapon = currentPlayerWeapon
+            ? currentPlayerWeapon
+            : gameObject.AddComponent<Katana>();
         updateText();
     }
 
     void Start()
     {
-        CurrentPlayerWeapon = new PlayerWeaponStorage().GetCurrentPlayerWeapon();
+        var currentPlayerWeapon = new PlayerWeaponStorage().GetCurrentPlayerWeapon();
+        CurrentPlayerWeapon = currentPlayerWeapon
+            ? currentPlayerWeapon
+            : gameObject.AddComponent<Katana>();
     }
 
     void onDeath()

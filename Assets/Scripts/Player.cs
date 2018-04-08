@@ -12,8 +12,8 @@ public class Player : MovingObject
     private bool allowedMoveDown;
     private bool allowedMoveLeft;
     private bool allowedMoveRight;
-    private Weapon playerWeapon;
     private float timeBeforeNextShoot;
+    private PlayerWeaponStorage weaponStorage;
     public GameObject Bullet;
 
     protected override float ObjectSpeed
@@ -27,9 +27,8 @@ public class Player : MovingObject
 	    rb2d = GetComponent<Rigidbody2D>();
 	    c2d = GetComponent<CircleCollider2D>();
 	    playerAttributes = GetComponent<PlayerAttributes>();
-	    playerWeapon = playerAttributes.CurrentPlayerWeapon
-	        ? playerAttributes.CurrentPlayerWeapon
-	        : gameObject.AddComponent<Katana>();
+	    Bullet = Resources.Load("Prefabs/Projectiles/KatanaBullet") as GameObject;
+	    weaponStorage = new PlayerWeaponStorage();
 	}
 	
 	// Update is called once per frame
@@ -37,6 +36,7 @@ public class Player : MovingObject
     {
         AttemptToMove();
         AttemptToAttack();
+        AttemptToChangeWeapon();
     }
 
     private void AttemptToMove()
@@ -95,10 +95,51 @@ public class Player : MovingObject
         if (fire)
         {
             Instantiate(Bullet, rb2d.position + GetBulletInstantionPositionByDirection(), Quaternion.identity);
-            timeBeforeNextShoot = Time.deltaTime * 50;
+            timeBeforeNextShoot = Time.deltaTime * 10;
         }
     }
-     
+
+    private void AttemptToChangeWeapon()
+    {
+        var katanaButtonPressed = Input.GetKeyUp("1");
+        if (katanaButtonPressed)
+        {
+            var newBullet = Resources.Load("Prefabs/Projectiles/KatanaBullet") as GameObject;
+            if (newBullet == null)
+                return;
+            Bullet = newBullet;
+            var katana = gameObject.AddComponent<Katana>();
+            PlayerAttributes.CurrentPlayerWeapon = katana;
+            weaponStorage.SetCurrentPlayerWeapon(katana);
+            return;
+        }
+
+        var guitarButtonPressed = Input.GetKeyUp("2");
+        if (guitarButtonPressed)
+        {
+            var newBullet = Resources.Load("Prefabs/Projectiles/GuitarBullet") as GameObject;
+            if (newBullet == null)
+                return;
+            Bullet = newBullet;
+            var guitar = gameObject.AddComponent<Guitar>();
+            PlayerAttributes.CurrentPlayerWeapon = guitar;
+            weaponStorage.SetCurrentPlayerWeapon(guitar);
+            return;
+        }
+
+        var clubButtonPressed = Input.GetKeyUp("3");
+        if (clubButtonPressed)
+        {
+            var newBullet = Resources.Load("Prefabs/Projectiles/ClubBullet") as GameObject;
+            if (newBullet == null)
+                return;
+            Bullet = newBullet;
+            var club = gameObject.AddComponent<Club>();
+            PlayerAttributes.CurrentPlayerWeapon = club;
+            weaponStorage.SetCurrentPlayerWeapon(club);
+        }
+    }
+
     private Vector2 GetBulletInstantionPositionByDirection()
     {
         var direction = PlayerAttributes.Direction;
