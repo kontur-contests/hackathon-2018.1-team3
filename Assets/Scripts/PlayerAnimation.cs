@@ -11,35 +11,39 @@ public class PlayerAnimation : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
-        playerWeapon = GetComponent<PlayerAttributes>().CurrentPlayerWeapon;
         anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update() {
 
-        switch (playerWeapon.name)
+        playerWeapon = GetComponent<PlayerAttributes>().CurrentPlayerWeapon;
+        if (playerWeapon != null)
         {
-            case "Katana":
-                if (Input.GetKey(KeyCode.W))
-                    anim.Play("KatanaUp");
-                else if (Input.GetKey(KeyCode.D))
-                    anim.Play("KatanaRight");
-                else if (Input.GetKey(KeyCode.S))
-                    anim.Play("KatanaDown");
-                else if (Input.GetKey(KeyCode.A))
-                    anim.Play("KatanaLeft");
-                break;
-            default:
-                if (Input.GetKey(KeyCode.W))
-                    anim.Play("SimpleUp");
-                else if (Input.GetKey(KeyCode.D))
-                    anim.Play("SimpleRight");
-                else if (Input.GetKey(KeyCode.S))
-                    anim.Play("SimpleDown");
-                else if (Input.GetKey(KeyCode.A))
-                    anim.Play("SimpleLeft");
-                break;
+            switch (playerWeapon.name)
+            {
+                case "Katana":
+                    if (Input.GetKey(KeyCode.W))
+                        anim.Play("KatanaUp");
+                    else if (Input.GetKey(KeyCode.D))
+                        anim.Play("KatanaRight");
+                    else if (Input.GetKey(KeyCode.S))
+                        anim.Play("KatanaDown");
+                    else if (Input.GetKey(KeyCode.A))
+                        anim.Play("KatanaLeft");
+                    break;
+            }
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.W))
+                anim.Play("SimpleUp");
+            else if (Input.GetKey(KeyCode.D))
+                anim.Play("SimpleRight");
+            else if (Input.GetKey(KeyCode.S))
+                anim.Play("SimpleDown");
+            else if (Input.GetKey(KeyCode.A))
+                anim.Play("SimpleLeft");
         }
     }
 }
