@@ -54,7 +54,9 @@ namespace Weapons
             lock (lockObject)
             {
                 var currentPlayerWeapon = GetCurrentPlayerWeapon();
-                currentPlayerWeapon.IsCurrent = false;
+                if (currentPlayerWeapon != null)
+                    currentPlayerWeapon.IsCurrent = false;
+                
                 var newCurrentPlayerWeapon = GetPlayerWeapon(weapon.Name);
                 if (newCurrentPlayerWeapon == null)
                 {

@@ -26,7 +26,7 @@ public class PlayerAttributes : MonoBehaviour
     public int awesomeness = 1000;
     public int flaskCharges = 2;
 
-    public Weapon CurrentPlayerWeapon;
+    public static Weapon CurrentPlayerWeapon;
     public int XOnMap;
     public int YOnMap;
     public LevelMap currentMap;
