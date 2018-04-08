@@ -9,6 +9,7 @@ public class Enemy : MovingObject
     private bool followActive;
 	private bool attack;
 	private float timeBeforeNextShoot;
+	private float collateralDamageTimer;
 	private Direction direction;
 	public int HP = 100;
 	public GameObject Bullet;
@@ -23,6 +24,7 @@ public class Enemy : MovingObject
 	void Update()
 	{
 		AttemptToAttack();
+		AttemptToAddCollateralDamage();
 	}
 
 	private void OnTriggerStay2D(Collider2D other)
@@ -53,9 +55,22 @@ public class Enemy : MovingObject
         {
             followActive = false;
         }
-	    if (collision.gameObject.CompareTag("KatanaBullet"))
+	    else if (collision.gameObject.CompareTag("KatanaBullet"))
 	    {
 		    HP -= 20;
+		    if (HP <= 0)
+			    Destroy(gameObject);
+	    }
+	    else if (collision.gameObject.CompareTag("GuitarBullet"))
+	    {
+		    HP -= 30;
+		    if (HP <= 0)
+			    Destroy(gameObject);
+	    }
+	    else if (collision.gameObject.CompareTag("ClubBullet"))
+	    {
+		    HP -= 20;
+		    collateralDamageTimer = Time.deltaTime * 5;
 		    if (HP <= 0)
 			    Destroy(gameObject);
 	    }
@@ -84,7 +99,16 @@ public class Enemy : MovingObject
 		Instantiate(Bullet, rb2d.position + GetBulletInstantionPositionByDirection(), Quaternion.identity);
 		timeBeforeNextShoot = Time.deltaTime * 50;
 	}
-	
+
+	private void AttemptToAddCollateralDamage()
+	{
+		if (collateralDamageTimer > float.Epsilon)
+		{
+			collateralDamageTimer -= Time.deltaTime;
+			HP -= 5;
+		}
+	}
+
 	private Vector2 GetBulletInstantionPositionByDirection()
 	{
 		var x = 0f;
