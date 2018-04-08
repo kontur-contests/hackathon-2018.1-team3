@@ -20,12 +20,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4088496318674794}
   - component: {fileID: 212601822143424236}
-  - component: {fileID: 114218234144001000}
   - component: {fileID: 50777653906710556}
   - component: {fileID: 58968032774282488}
+  - component: {fileID: 95465002243931940}
+  - component: {fileID: 114459754112154804}
+  - component: {fileID: 114286124050160506}
   m_Layer: 0
   m_Name: Cactus
-  m_TagString: Enemy
+  m_TagString: Cactus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1405161067464142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: -3.6, y: 2.55, z: -1}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +80,35 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.32
---- !u!114 &114218234144001000
+--- !u!95 &95465002243931940
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1405161067464142}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 96661ee19e83a294fb070391eab2714e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114286124050160506
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1405161067464142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf16b8606e3d544c9e3a99ca01359f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114459754112154804
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -89,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed790c102615fb34191769f63bc5502e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followActive: 0
+  attack: 0
   HP: 100
   Bullet: {fileID: 1508463972274072, guid: 48952b3966fe17f459908289afea3545, type: 2}
 --- !u!212 &212601822143424236
