@@ -155,7 +155,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cbb5eaffb355ec43b7a90783ed99823, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &1241859905
+--- !u!1001 &560800605
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -164,11 +164,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4537422201613762, guid: ce1e40ac7fbfa514b9d5ca72e60d6cdd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.63
+      value: -1.7229122
       objectReference: {fileID: 0}
     - target: {fileID: 4537422201613762, guid: ce1e40ac7fbfa514b9d5ca72e60d6cdd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.57
+      value: 1.8009763
       objectReference: {fileID: 0}
     - target: {fileID: 4537422201613762, guid: ce1e40ac7fbfa514b9d5ca72e60d6cdd, type: 2}
       propertyPath: m_LocalPosition.z
@@ -194,14 +194,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1267204167421296, guid: ce1e40ac7fbfa514b9d5ca72e60d6cdd, type: 2}
-      propertyPath: m_Name
-      value: ClownKarate (1)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce1e40ac7fbfa514b9d5ca72e60d6cdd, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &1389500412
+--- !u!1001 &1275760232
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -210,11 +206,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4537422201613762, guid: ce1e40ac7fbfa514b9d5ca72e60d6cdd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.51
+      value: -1.7229122
       objectReference: {fileID: 0}
     - target: {fileID: 4537422201613762, guid: ce1e40ac7fbfa514b9d5ca72e60d6cdd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.66
+      value: -1.7835269
       objectReference: {fileID: 0}
     - target: {fileID: 4537422201613762, guid: ce1e40ac7fbfa514b9d5ca72e60d6cdd, type: 2}
       propertyPath: m_LocalPosition.z
@@ -238,12 +234,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4537422201613762, guid: ce1e40ac7fbfa514b9d5ca72e60d6cdd, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267204167421296, guid: ce1e40ac7fbfa514b9d5ca72e60d6cdd, type: 2}
+      propertyPath: m_Name
+      value: ClownKarate (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce1e40ac7fbfa514b9d5ca72e60d6cdd, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &1537634040
+--- !u!1001 &1496885915
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -252,11 +252,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4537422201613762, guid: ce1e40ac7fbfa514b9d5ca72e60d6cdd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.13
+      value: 1.9800875
       objectReference: {fileID: 0}
     - target: {fileID: 4537422201613762, guid: ce1e40ac7fbfa514b9d5ca72e60d6cdd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.39
+      value: 0.43827295
       objectReference: {fileID: 0}
     - target: {fileID: 4537422201613762, guid: ce1e40ac7fbfa514b9d5ca72e60d6cdd, type: 2}
       propertyPath: m_LocalPosition.z

@@ -2,81 +2,88 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAnimation : MonoBehaviour {
+public class EnemyAnimation : MonoBehaviour
+{
 
     private Animator anim;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
 
         anim = GetComponent<Animator>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if(GetComponent<Enemy>().followActive)
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        var center = transform.position;
+        var playerCenter = GameObject.Find("Player").transform.position;
+        if (GetComponent<Enemy>().followActive)
         {
-            switch(gameObject.name)
+
+            switch (gameObject.tag)
             {
                 case "Boss":
-                    if (Input.GetAxisRaw("Horizontal") == 1)
+                    if (center.x < playerCenter.x)
                         anim.Play("BossRight");
-                    else if (Input.GetAxisRaw("Horizontal") == -1)
+                    else if (center.x > playerCenter.x)
                         anim.Play("BossLeft");
-                    else if (Input.GetAxisRaw("Vertical") == 1)
+                    else if (center.y < playerCenter.y)
                         anim.Play("BossUp");
-                    else if (Input.GetAxisRaw("Vertical") == -1)
+                    else if (center.y > playerCenter.y)
                         anim.Play("BossDown");
-                        break;
+                    break;
+
                 case "Cactus":
-                    if (Input.GetAxisRaw("Vertical") == 1)
+                    if (center.y < playerCenter.y)
                         anim.Play("CactusUp");
-                    else if (Input.GetAxisRaw("Vertical") == -1)
+                    else if (center.y > playerCenter.y)
                         anim.Play("CactusDown");
                     break;
                 case "ClownKarate":
-                    if (Input.GetAxisRaw("Horizontal") == 1)
-                        anim.Play("ClownRight");
-                    else if (Input.GetAxisRaw("Horizontal") == -1)
-                        anim.Play("ClownLeft");
-                    else if (Input.GetAxisRaw("Vertical") == 1)
-                        anim.Play("ClownUp");
-                    else if (Input.GetAxisRaw("Vertical") == -1)
-                        anim.Play("ClownDown");
+                    if (center.x < playerCenter.x)
+                        anim.Play("ClownKarateRight");
+                    else if (center.x > playerCenter.x)
+                        anim.Play("ClownKarateLeft");
+                    else if (center.y < playerCenter.y)
+                        anim.Play("ClownKarateUp");
+                    else if (center.y > playerCenter.y)
+                        anim.Play("ClownKarateDown");
                     break;
             }
         }
-        if(GetComponent<Enemy>().attack)
+        if (GetComponent<Enemy>().attack)
         {
-            switch (gameObject.name)
+            switch (gameObject.tag)
             {
                 case "Boss":
-                    if (Input.GetAxisRaw("Horizontal") == 1)
+                    if (center.x < playerCenter.x)
                         anim.Play("BossStrikeRight");
-                    else if (Input.GetAxisRaw("Horizontal") == -1)
+                    else if (center.x > playerCenter.x)
                         anim.Play("BossStrikeLeft");
-                    else if (Input.GetAxisRaw("Vertical") == 1)
+                    else if (center.y < playerCenter.y)
                         anim.Play("BossStrikeUp");
-                    else if (Input.GetAxisRaw("Vertical") == -1)
+                    else if (center.y > playerCenter.y)
                         anim.Play("BossStrikeDown");
                     break;
                 case "Cactus":
-                    if (Input.GetAxisRaw("Horizontal") == 1)
+                    if (center.x < playerCenter.x)
                         anim.Play("CactusStrikeRight");
-                    else if (Input.GetAxisRaw("Horizontal") == -1)
+                    else if (center.x > playerCenter.x)
                         anim.Play("CactusStrikeLeft");
                     break;
                 case "ClownKarate":
-                    if (Input.GetAxisRaw("Horizontal") == 1)
-                        anim.Play("ClownStrikeRight");
-                    else if (Input.GetAxisRaw("Horizontal") == -1)
-                        anim.Play("ClownStrikeLeft");
-                    else if (Input.GetAxisRaw("Vertical") == 1)
-                        anim.Play("ClownStrikeUp");
-                    else if (Input.GetAxisRaw("Vertical") == -1)
-                        anim.Play("ClownStrikeDown");
+                    if (center.x < playerCenter.x)
+                        anim.Play("ClownKarateStrikeRight");
+                    else if (center.x > playerCenter.x)
+                        anim.Play("ClownKarateStrikeLeft");
+                    else if (center.y < playerCenter.y)
+                        anim.Play("ClownKarateStrikeUp");
+                    else if (center.y > playerCenter.y)
+                        anim.Play("ClownKarateStrikeDown");
                     break;
             }
         }
-	}
+    }
 }

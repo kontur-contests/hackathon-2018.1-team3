@@ -71,7 +71,7 @@ public class Player : MovingObject
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Boss")|| collision.gameObject.CompareTag("Cactus")|| collision.gameObject.CompareTag("ClownKarate"))
         {
             rb2d.velocity = new Vector2(0, 0);
             collision.rigidbody.velocity = new Vector2(0, 0);

@@ -10,6 +10,10 @@ TagManager:
   - KatanaBullet
   - EnemyBullet
   - ClubBullet
+  - GuitarBullet
+  - Boss
+  - Cactus
+  - ClownKarate
   layers:
   - Default
   - TransparentFX
