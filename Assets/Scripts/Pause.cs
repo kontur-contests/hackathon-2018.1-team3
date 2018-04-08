@@ -7,7 +7,7 @@ public class Pause : MonoBehaviour
 {
 
     public float timer;
-    public bool ispuse;
+    public bool isPause;
     public bool guipuse;
 
     // Use this for initialization
@@ -20,21 +20,21 @@ public class Pause : MonoBehaviour
     void Update()
     {
         Time.timeScale = timer;
-        if (Input.GetKeyDown(KeyCode.Escape) && ispuse == false)
+        if (Input.GetKeyDown(KeyCode.Escape) && isPause == false)
         {
-            ispuse = true;
+            isPause = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && ispuse == true)
+        else if (Input.GetKeyDown(KeyCode.Escape) && isPause == true)
         {
-            ispuse = false;
+            isPause = false;
         }
-        if (ispuse == true)
+        if (isPause == true)
         {
             timer = 0;
             guipuse = true;
 
         }
-        else if (ispuse == false)
+        else if (isPause == false)
         {
             timer = 1f;
             guipuse = false;
@@ -46,9 +46,9 @@ public class Pause : MonoBehaviour
         if (guipuse == true)
         {
             Cursor.visible = true;// включаем отображение курсора
-            if (GUI.Button(new Rect((float)(Screen.width / 2), (float)(Screen.height / 2) - 100f, 150f, 45f), "Продолжить"))
+            if (GUI.Button(new Rect((float)(Screen.width / 3), (float)(Screen.height / 2) - 100f, 700f, 45f), "Продолжить"))
             {
-                ispuse = false;
+                isPause = false;
                 timer = 0;
                 Cursor.visible = false;
             }
@@ -62,9 +62,9 @@ public class Pause : MonoBehaviour
 
             }
             */
-            if (GUI.Button(new Rect((float)(Screen.width / 2), (float)(Screen.height / 2) - 50f, 150f, 45f), "Меню"))
+            if (GUI.Button(new Rect((float)(Screen.width / 3), (float)(Screen.height / 2) - 50f, 700f, 45f), "Меню"))
             {
-                ispuse = false;
+                isPause = false;
                 timer = 0;
                 SceneManager.LoadScene("MainMenu"); // здесь при нажатии на кнопку загружается другая сцена, вы можете изменить название сцены на свое
             }

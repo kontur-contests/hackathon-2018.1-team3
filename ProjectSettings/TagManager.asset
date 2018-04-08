@@ -14,6 +14,7 @@ TagManager:
   - Boss
   - Cactus
   - ClownKarate
+  - Music
   layers:
   - Default
   - TransparentFX

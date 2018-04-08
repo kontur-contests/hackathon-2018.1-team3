@@ -21,7 +21,7 @@ public class DoorEnter : MonoBehaviour {
             }
             else if (other.gameObject.name == "DoorDown")
             {
-                ChangeRoom(new Vector2Int(0, -1), new Vector3(-0.35f, 4, -1));
+                ChangeRoom(new Vector2Int(0, -1), new Vector3(-0.35f, 3.5f, -1));
             }
             else if (other.gameObject.name == "DoorLeft")
             {
