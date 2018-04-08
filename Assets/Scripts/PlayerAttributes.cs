@@ -99,11 +99,6 @@ public class PlayerAttributes : MonoBehaviour
 
     public void updateText()
     {
-        if (healthText == null)
-        {
-            Debug.Log("solution");
-        }
-
         if (health > 0)
             healthText.text = health.ToString();
         else
