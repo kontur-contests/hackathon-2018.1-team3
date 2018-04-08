@@ -218,8 +218,7 @@ Prefab:
       propertyPath: awsText
       value: 
       objectReference: {fileID: 698234774}
-    m_RemovedComponents:
-    - {fileID: 114198498940913048, guid: f6f489cee6f481b4485db9c63d0647dd, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6f489cee6f481b4485db9c63d0647dd, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1602854965
