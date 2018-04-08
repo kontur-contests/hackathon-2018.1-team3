@@ -5,8 +5,6 @@ namespace Extensions
 {
     public static class VectorExtensions
     {
-        private static float Epsilon = 0.005f;
-
         public static bool HasMovementAtAnyAxis(this Vector2 movement)
         {
             return !movement.IsCloseTo(new Vector2(0, 0));
@@ -15,13 +13,8 @@ namespace Extensions
         public static bool IsCloseTo(this Vector2 current, Vector2 other)
         {
             var subtract = current - other;
-            return Math.Abs(subtract.x) <= Epsilon
-                   && Math.Abs(subtract.y) <= Epsilon;
-        }
-        
-        public static bool IsCloseTo(this Vector3 current, Vector3 other)
-        {
-            return Length(current - other) < Epsilon;
+            return Math.Abs(subtract.x) <= float.Epsilon
+                   && Math.Abs(subtract.y) <= float.Epsilon;
         }
 
         public static float Length(this Vector3 vector3)

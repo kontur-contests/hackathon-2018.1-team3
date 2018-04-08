@@ -33,21 +33,10 @@ public class LevelMap
     {
         if (i >= 0 && i < gridSize)
             return locations[i, j].sceneName;
-        else
-        {
-            Debug.Log("Tried to visit incorrect room");
-            return "";
-        }
+        
+        return "";
     }
     // Use this for initialization
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
