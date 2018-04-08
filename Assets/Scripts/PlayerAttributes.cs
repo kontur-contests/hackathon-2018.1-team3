@@ -42,7 +42,7 @@ public class PlayerAttributes : MonoBehaviour
         XOnMap = 0;//I'm not entirely shre if this is called once per game or once per level. 
         YOnMap = 0;
 
-      //  updateText();
+        updateText();
     }
 
     void Start()
@@ -121,7 +121,6 @@ public class PlayerAttributes : MonoBehaviour
     public void ChangeHealthValue(int change)
     {
         health += change;
-        Debug.Log(health);
-        //updateText();
+        updateText();
     }
 }
