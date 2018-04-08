@@ -6,7 +6,7 @@ using Weapons;
 public class PlayerAttributes : MonoBehaviour
 {//TODO: Should be singletone;
     public static Direction Direction;
-    
+
     public Text healthText;
     public Text strengthText;
     public Text agilityText;
@@ -46,7 +46,6 @@ public class PlayerAttributes : MonoBehaviour
         CurrentPlayerWeapon = currentPlayerWeapon
             ? currentPlayerWeapon
             : gameObject.AddComponent<Katana>();
-        updateText();
     }
 
     void Start()
@@ -55,6 +54,7 @@ public class PlayerAttributes : MonoBehaviour
         CurrentPlayerWeapon = currentPlayerWeapon
             ? currentPlayerWeapon
             : gameObject.AddComponent<Katana>();
+
     }
 
     void onDeath()
@@ -98,7 +98,7 @@ public class PlayerAttributes : MonoBehaviour
         updateText();
     }
 
-    void updateText()
+    public void updateText()
     {
         if (health > 0)
             healthText.text = health.ToString();
@@ -118,6 +118,28 @@ public class PlayerAttributes : MonoBehaviour
     public void ChangeHealthValue(int change)
     {
         health += change;
+        updateText();
+    }
+
+    void OnLevelWasLoaded(int level)
+    {
+        var texts = SceneManager.GetActiveScene().GetRootGameObjects()[0].GetComponentsInChildren<Text>();
+
+        for (int i = 0; i < texts.Length; i++)
+        {
+            if (texts[i].name == "HealthText")
+                healthText = texts[i];
+            else if (texts[i].name == "StrengthText")
+                strengthText = texts[i];
+            else if (texts[i].name == "AgilityText")
+                agilityText = texts[i];
+            else if (texts[i].name == "EnduranceText")
+                enduranceText = texts[i];
+            else if (texts[i].name == "MoneyCount")
+                moneyText = texts[i];
+            else if (texts[i].name == "AwsCount")
+                awsText = texts[i];
+        }
         updateText();
     }
 }

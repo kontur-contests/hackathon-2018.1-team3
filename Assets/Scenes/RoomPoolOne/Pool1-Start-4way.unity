@@ -143,12 +143,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1602854965}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!114 &564297667 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114236379222708656, guid: 7cbb5eaffb355ec43b7a90783ed99823,
-    type: 2}
-  m_PrefabInternal: {fileID: 1602854965}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &698234774 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114598189796395986, guid: 7cbb5eaffb355ec43b7a90783ed99823,
@@ -218,20 +212,12 @@ Prefab:
         type: 2}
       propertyPath: moneyText
       value: 
-      objectReference: {fileID: 564297667}
+      objectReference: {fileID: 40407410}
     - target: {fileID: 114694796963955738, guid: f6f489cee6f481b4485db9c63d0647dd,
         type: 2}
       propertyPath: awsText
       value: 
       objectReference: {fileID: 698234774}
-    - target: {fileID: 4555079198264294, guid: f6f489cee6f481b4485db9c63d0647dd, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4555079198264294, guid: f6f489cee6f481b4485db9c63d0647dd, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6f489cee6f481b4485db9c63d0647dd, type: 2}
   m_IsPrefabParent: 0
