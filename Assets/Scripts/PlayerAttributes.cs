@@ -22,7 +22,7 @@ public class PlayerAttributes : MonoBehaviour
     public int endurance = 1;
     public int money = 1000;
     public int awesomeness = 1000;
-    public int flaskCharges = 2;
+    public int flaskCharges=2;
 
     public Weapon CurrentPlayerWeapon;
     public int XOnMap;
