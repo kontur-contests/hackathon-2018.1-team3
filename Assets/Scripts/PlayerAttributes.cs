@@ -13,6 +13,8 @@ public class PlayerAttributes : MonoBehaviour
     public Text enduranceText;
     public Text moneyText;
     public Text awsText;
+    public GameObject flask;
+
 
     #region serializableAttributes
     public int health = 100;
@@ -48,6 +50,7 @@ public class PlayerAttributes : MonoBehaviour
 
     void Start()
     {
+        var flasks = flask.GetComponentInChildren<Sprite>();
         CurrentPlayerWeapon = new PlayerWeaponStorage().GetCurrentPlayerWeapon();
     }
 
