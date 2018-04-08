@@ -9,6 +9,7 @@ TagManager:
   - PlayerDetector
   - KatanaBullet
   - EnemyBullet
+  - ClubBullet
   layers:
   - Default
   - TransparentFX
