@@ -56,7 +56,7 @@ public class PlayerAttributes : MonoBehaviour
     {
 //            changeAwesomeness(awesomeness + 1);
         {
-            changeHealth(health-25);
+            ChangeHealth(health-25);
             //string nextLevel = currentMap.GetRoomNameByCoords(XOnMap + 1, YOnMap);//4 listheners on transition;
             //SceneManager.LoadScene(nextLevel);
         }
